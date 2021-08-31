@@ -3,7 +3,6 @@ import {CommonModule} from '@angular/common';
 import {MatIconRegistry} from "@angular/material/icon";
 import {DomSanitizer} from "@angular/platform-browser";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
-import {SignalInterceptorService} from "../../shared/utils/services/signal-interceptor.service";
 
 @NgModule({
   imports: [HttpClientModule],
