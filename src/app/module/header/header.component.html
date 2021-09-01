@@ -1,25 +1,30 @@
-<div class="bg-primary-blue">
-  <div class="flex ml-8 justify-center items-center h-16">
+<div class="bg-primary-blue " [ngClass]="'iufce__parrent-header background-' + background">
+  <div class="flex pl-8 justify-center items-center h-16">
     <div class="w-8 h-8 mr-4" [routerLink]="['/']">
-      <mat-icon [svgIcon]="'fa_brands:github'" class="iufce__icon "></mat-icon>
+      <mat-icon [svgIcon]="'fa_brands:github'" class="iufce__icon " [ngClass]="'colorIcon-'+color"></mat-icon>
     </div>
     <div class="flex flex-1 items-center">
-      <input type="text" class="w-73 h-7 text-white pl-3" [ngClass]="inputValue ? 'iufce__expand-input' : '' "
-             (focus) ="resizeData($event)"
+      <input type="text" class="w-73 h-7 text-black pl-3"
+             [ngClass]="inputValue ? 'iufce__expand-input' :'' "
+             (focus)="resizeData($event)"
              [(ngModel)]="inputValue">
       <div class="ml-2">
-        <h1 class="text-white text-xs" [routerLink]="['repository']">Pull request</h1>
+        <h1 class="text-white text-xs" [routerLink]="['repository']" [ngClass]="'colorIcon-'+color">Pull request</h1>
       </div>
     </div>
-    <div class="flex">
+    <div class="flex pr-8">
       <div class="w-5 h-5">
-        <mat-icon [svgIcon]="'fa_solid:bell'"  class="iufce__icon "></mat-icon>
+        <mat-icon [svgIcon]="'fa_solid:bell'" class="iufce__icon" [ngClass]="'colorIcon-'+color"></mat-icon>
       </div>
       <div class="w-5 h-5 ml-2">
-        <mat-icon [svgIcon]="'fa_solid:plus'"  class="iufce__icon "></mat-icon>
-      </div><div class="w-5 h-5 ml-2">
-      <mat-icon [svgIcon]="'fa_solid:user-circle'" class="iufce__icon "></mat-icon>
-    </div>
+        <mat-icon [svgIcon]="'fa_solid:plus'" class="iufce__icon" [ngClass]="'colorIcon-'+color"></mat-icon>
+      </div>
+      <div class="w-5 h-5 ml-2">
+        <mat-icon (click)="onSayHello.emit($event)"
+                  [svgIcon]="'fa_solid:user-circle'"
+                  class="iufce__icon"
+                  [ngClass]="'colorIcon-'+color"></mat-icon>
+      </div>
     </div>
   </div>
 </div>

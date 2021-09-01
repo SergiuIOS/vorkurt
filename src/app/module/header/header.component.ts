@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {animate, state, style, transition, trigger} from "@angular/animations";
 
 @Component({
@@ -28,13 +28,22 @@ import {animate, state, style, transition, trigger} from "@angular/animations";
   styleUrls: ['./header.component.sass']
 })
 export class HeaderComponent implements OnInit {
+  @Input()
   inputValue: String
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  @Input() name: string
+  @Input() color = 'transparent'
+  @Output()
+  onSayHello = new EventEmitter<Event>()
+
+  @Input() background : 'light' | 'dark' | 'transparent' = 'transparent'
+
   resizeData(event: Event){
     this.inputValue = ' '
   }
+
 }

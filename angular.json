@@ -36,7 +36,8 @@
               "./node_modules/ag-grid-community/dist/styles/ag-theme-alpine.css",
               "node_modules/reset-css/reset.css",
               "src/assets/styles/styles.scss",
-              "src/assets/styles/tailwind.css"
+              "src/assets/styles/tailwind.css",
+              "src/assets/styles/custom-style.sass"
             ],
             "scripts": []
           },

@@ -10,6 +10,7 @@ import {FormsModule} from "@angular/forms";
 import {RepositoryContainerModule} from "./module/repository-container/repository-container.module";
 import {CoreModule} from "../@core/core/core.module";
 import {AgGridModule} from "ag-grid-angular";
+import {SharedModule} from "./shared/shared.module";
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import {AgGridModule} from "ag-grid-angular";
     FormsModule,
     RepositoryContainerModule,
     CoreModule,
-    AgGridModule.withComponents([])
+    AgGridModule.withComponents([]),
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
