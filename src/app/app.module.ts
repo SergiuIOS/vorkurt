@@ -11,6 +11,9 @@ import {RepositoryContainerModule} from "./module/repository-container/repositor
 import {CoreModule} from "../@core/core/core.module";
 import {AgGridModule} from "ag-grid-angular";
 import {SharedModule} from "./shared/shared.module";
+import {firebaseConfig} from "./config/auth/firebase";
+import {AngularFireModule} from "@angular/fire/compat";
+import {AngularFireDatabaseModule} from "@angular/fire/compat/database";
 
 @NgModule({
   declarations: [
@@ -22,6 +25,8 @@ import {SharedModule} from "./shared/shared.module";
     AppRoutingModule,
     BrowserAnimationsModule,
     MatIconModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule,
     FormsModule,
     RepositoryContainerModule,
     CoreModule,

@@ -1,53 +1,57 @@
 import {moduleMetadata} from '@storybook/angular';
-import {CommonModule} from '@angular/common';
+import {APP_BASE_HREF, CommonModule} from '@angular/common';
 // also exported from '@storybook/angular' if you can deal with breaking changes in 6.1
 import {Meta, Story} from '@storybook/angular/types-6-0';
 import {HeaderComponent} from "../app/module/header/header.component";
 import {CoreModule} from "../@core/core/core.module";
 import {MatIconModule} from "@angular/material/icon";
 import {FormsModule} from "@angular/forms";
+import {RouterTestingModule} from "@angular/router/testing";
+import {AppRoutingModule} from "../app/app-routing.module";
+import {RouterModule} from "@angular/router";
 
 export default {
   title: 'Header',
   component: HeaderComponent,
   argTypes: {
-    variant: {
-      options: ['primary', 'secondary'],
+    background: {
+      options: ['light', 'dark', 'transparent'],
       control: {type: 'radio'}
     },
-    propertyA: {
-      options: ['Item one', 'Item two', 'Item Three']
-    }
+    name: {
+      options: ['Mihai', 'Denis', 'Sami'],
+      control: {type: 'radio'}
+    },
+    color: {
+      options: ['light', 'dark', 'transparent'],
+      control: {type: 'radio'}
+    },
   },
   decorators: [
     moduleMetadata({
-      imports: [CommonModule, CoreModule, MatIconModule, FormsModule],
+      imports: [
+        CommonModule, CoreModule, MatIconModule,
+        FormsModule, RouterTestingModule,
+        RouterModule.forRoot([{
+          path: 'repozitory',
+          loadChildren: () => import('./../app/module/repository-container/repository-container.module').then(m => m.RepositoryContainerModule)
+        },
+        ])
+      ],
+      providers: [
+        {provide: APP_BASE_HREF, useValue: '/'}
+      ]
     }),
   ],
 } as Meta;
 
-const Template: Story<HeaderComponent> = (args: HeaderComponent) => (
+export const Template: Story<HeaderComponent> = (args: HeaderComponent) => (
   {
     props: args,
+    template: `<elix-header></elix-header>
+    <router-outlet></router-outlet>
+`
   });
 
-export const ColorDark = Template.bind({})
-ColorDark.args = {
-  background: 'dark',
-  color: 'dark'
-}
 
-export const ColorLight = Template.bind({})
-ColorLight.args = {
-  background: "light",
-  color: "light"
-
-}
-
-export const ColorTransparent = Template.bind({})
-ColorTransparent.args = {
-  background: 'transparent',
-  color: 'transparent'
-
-}
 

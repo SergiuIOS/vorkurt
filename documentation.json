@@ -251,35 +251,51 @@
             "stylesData": ""
         },
         {
-            "name": "HeaderComponent",
-            "id": "component-HeaderComponent-df9f8eafad850e67384d099aaa3ad81b-1",
-            "file": "src/app/module/header/header.component.ts",
-            "encapsulation": [],
-            "entryComponents": [],
-            "inputs": [],
-            "outputs": [],
-            "providers": [],
-            "selector": "elix-header",
-            "styleUrls": [
-                "./header.component.sass"
-            ],
+          "name": "HeaderComponent",
+          "id": "component-HeaderComponent-0b9d86b5b5f1da8b0ce7713f4417d444-1",
+          "file": "src/app/module/header/header.component.ts",
+          "encapsulation": [],
+          "entryComponents": [],
+          "inputs": [],
+          "outputs": [],
+          "providers": [],
+          "selector": "elix-header",
+          "styleUrls": [
+            "./header.component.sass"
+          ],
             "styles": [],
             "templateUrl": [
                 "./header.component.html"
             ],
             "viewProviders": [],
             "inputsClass": [
-                {
-                    "name": "inputValue",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 32,
-                    "type": "String"
-                },
-                {
-                    "name": "name",
-                    "deprecated": false,
-                    "deprecationMessage": "",
+              {
+                "name": "background",
+                "defaultValue": "'transparent'",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "line": 43,
+                "type": "\"light\" | \"dark\" | \"transparent\""
+              },
+              {
+                "name": "color",
+                "defaultValue": "'transparent'",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "line": 39,
+                "type": "string"
+              },
+              {
+                "name": "inputValue",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "line": 32,
+                "type": "String"
+              },
+              {
+                "name": "name",
+                "deprecated": false,
+                "deprecationMessage": "",
                     "line": 38,
                     "type": "string"
                 }
@@ -309,60 +325,50 @@
                 {
                     "name": "resizeData",
                     "args": [
-                        {
-                            "name": "event",
-                            "type": "Event",
-                            "deprecated": false,
-                            "deprecationMessage": ""
-                        }
+                      {
+                        "name": "event",
+                        "type": "Event",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                      }
                     ],
-                    "optional": false,
-                    "returnType": "void",
-                    "typeParameters": [],
-                    "line": 43,
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "jsdoctags": [
-                        {
-                            "name": "event",
-                            "type": "Event",
-                            "deprecated": false,
-                            "deprecationMessage": "",
-                            "tagName": {
-                                "text": "param"
+                  "optional": false,
+                  "returnType": "void",
+                  "typeParameters": [],
+                  "line": 45,
+                  "deprecated": false,
+                  "deprecationMessage": "",
+                  "jsdoctags": [
+                    {
+                      "name": "event",
+                      "type": "Event",
+                      "deprecated": false,
+                      "deprecationMessage": "",
+                      "tagName": {
+                        "text": "param"
                             }
                         }
-                    ]
-                },
-                {
-                    "name": "sayHello",
-                    "args": [],
-                    "optional": false,
-                    "returnType": "number",
-                    "typeParameters": [],
-                    "line": 47,
-                    "deprecated": false,
-                    "deprecationMessage": ""
+                  ]
                 }
             ],
-            "deprecated": false,
-            "deprecationMessage": "",
-            "hostBindings": [],
-            "hostListeners": [],
-            "description": "",
-            "rawdescription": "\n",
-            "type": "component",
-            "sourceCode": "import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';\nimport {animate, state, style, transition, trigger} from \"@angular/animations\";\n\n@Component({\n  selector: 'elix-header',\n  templateUrl: './header.component.html',\n  animations: [\n    trigger('openClose', [\n      // ...\n      state('open', style({\n        height: '200px',\n        opacity: 1,\n        backgroundColor: 'yellow'\n      })),\n      state('closed', style({\n        height: '100px',\n        opacity: 0.8,\n        backgroundColor: '#c6ecff'\n      })),\n      transition('open => closed', [\n        animate('1s')\n      ]),\n      transition('closed => open', [\n        animate('0.5s')\n      ]),\n    ]),\n  ],\n  styleUrls: ['./header.component.sass']\n})\nexport class HeaderComponent implements OnInit {\n  @Input()\n  inputValue: String\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n  @Input() name: string\n\n  @Output()\n  onSayHello = new EventEmitter<Event>()\n\n  resizeData(event: Event){\n    this.inputValue = ' '\n  }\n\n  sayHello(){\n      return 2\n    }\n}\n",
-            "assetsDirs": [],
-            "styleUrlsData": [
-                {
-                    "data": ".iufce__icon\n  color: #cdd9e5\n  height: inherit\n  width: inherit\n\n.iufce__expand-input\n    width: 32.75rem\n    transition: all 0.5s ease-in-out\n\n\n",
-                    "styleUrl": "./header.component.sass"
-                }
-            ],
-            "stylesData": "",
-            "constructorObj": {
-                "name": "constructor",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "hostBindings": [],
+          "hostListeners": [],
+          "description": "",
+          "rawdescription": "\n",
+          "type": "component",
+          "sourceCode": "import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';\nimport {animate, state, style, transition, trigger} from \"@angular/animations\";\n\n@Component({\n  selector: 'elix-header',\n  templateUrl: './header.component.html',\n  animations: [\n    trigger('openClose', [\n      // ...\n      state('open', style({\n        height: '200px',\n        opacity: 1,\n        backgroundColor: 'yellow'\n      })),\n      state('closed', style({\n        height: '100px',\n        opacity: 0.8,\n        backgroundColor: '#c6ecff'\n      })),\n      transition('open => closed', [\n        animate('1s')\n      ]),\n      transition('closed => open', [\n        animate('0.5s')\n      ]),\n    ]),\n  ],\n  styleUrls: ['./header.component.sass']\n})\nexport class HeaderComponent implements OnInit {\n  @Input()\n  inputValue: String\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n  @Input() name: string\n  @Input() color = 'transparent'\n  @Output()\n  onSayHello = new EventEmitter<Event>()\n\n  @Input() background : 'light' | 'dark' | 'transparent' = 'transparent'\n\n  resizeData(event: Event){\n    this.inputValue = ' '\n  }\n\n}\n",
+          "assetsDirs": [],
+          "styleUrlsData": [
+            {
+              "data": ".iufce__icon\n  color: #cdd9e5\n  height: inherit\n  width: inherit\n\n.iufce__expand-input\n    width: 32.75rem\n    transition: all 0.5s ease-in-out\n\n.iufce__parrent-header\n    &.background\n      &-dark\n        background: #8F8F8F\n      &-transparent\n        background: transparent\n      &-light\n        background: #F6F6F6\n\n.colorIcon\n    &-dark\n      color: #D9E5FF\n    &-transparent\n      color: #92A2BD\n    &-light\n      color: #8F8F8F\n",
+              "styleUrl": "./header.component.sass"
+            }
+          ],
+          "stylesData": "",
+          "constructorObj": {
+            "name": "constructor",
                 "description": "",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -375,7 +381,7 @@
             "isDuplicate": true,
             "duplicateId": 1,
             "duplicateName": "HeaderComponent-1",
-            "templateData": "<div class=\"bg-primary-blue\" [ngStyle]=\"{'background-color': name}\">\n  <div class=\"flex pl-8 justify-center items-center h-16\">\n    <div class=\"w-8 h-8 mr-4\" [routerLink]=\"['/']\">\n      <mat-icon [svgIcon]=\"'fa_brands:github'\" class=\"iufce__icon \"></mat-icon>\n    </div>\n    <div class=\"flex flex-1 items-center\">\n      <input type=\"text\" class=\"w-73 h-7 text-black pl-3\" [ngClass]=\"inputValue ? 'iufce__expand-input' : '' \"\n             (focus)=\"resizeData($event)\"\n             [(ngModel)]=\"inputValue\">\n      <div class=\"ml-2\">\n        <h1 class=\"text-white text-xs\" [routerLink]=\"['repository']\">Pull request</h1>\n      </div>\n    </div>\n    <div class=\"flex pr-8\">\n      <div class=\"w-5 h-5 vorkurt__inheirt\">\n        <mat-icon [svgIcon]=\"'fa_solid:bell'\" class=\"iufce__icon \"></mat-icon>\n      </div>\n      <div class=\"w-5 h-5 ml-2 vorkurt__inheirt\">\n        <mat-icon [svgIcon]=\"'fa_solid:plus'\" class=\"iufce__icon \"></mat-icon>\n      </div>\n      <div class=\"w-5 h-5 ml-2 vorkurt__inheirt\">\n        <mat-icon (click)=\"onSayHello.emit($event)\" [svgIcon]=\"'fa_solid:user-circle'\" class=\"iufce__icon \"></mat-icon>\n      </div>\n    </div>\n  </div>\n</div>\n<router-outlet></router-outlet>\n"
+          "templateData": "<div class=\"bg-primary-blue \" [ngClass]=\"'iufce__parrent-header background-' + background\">\n  <div class=\"flex pl-8 justify-center items-center h-16\">\n    <div class=\"w-8 h-8 mr-4\" [routerLink]=\"['/']\">\n      <mat-icon [svgIcon]=\"'fa_brands:github'\" class=\"iufce__icon \" [ngClass]=\"'colorIcon-'+color\"></mat-icon>\n    </div>\n    <div class=\"flex flex-1 items-center\">\n      <input type=\"text\" class=\"w-73 h-7 text-black pl-3\"\n             [ngClass]=\"inputValue ? 'iufce__expand-input' :'' \"\n             (focus)=\"resizeData($event)\"\n             [(ngModel)]=\"inputValue\">\n      <div class=\"ml-2\">\n        <h1 class=\"text-white text-xs\" [routerLink]=\"['repository']\" [ngClass]=\"'colorIcon-'+color\">Pull request</h1>\n      </div>\n    </div>\n    <div class=\"flex pr-8\">\n      <div class=\"w-5 h-5\">\n        <mat-icon [svgIcon]=\"'fa_solid:bell'\" class=\"iufce__icon\" [ngClass]=\"'colorIcon-'+color\"></mat-icon>\n      </div>\n      <div class=\"w-5 h-5 ml-2\">\n        <mat-icon [svgIcon]=\"'fa_solid:plus'\" class=\"iufce__icon\" [ngClass]=\"'colorIcon-'+color\"></mat-icon>\n      </div>\n      <div class=\"w-5 h-5 ml-2\">\n        <mat-icon (click)=\"onSayHello.emit($event)\"\n                  [svgIcon]=\"'fa_solid:user-circle'\"\n                  class=\"iufce__icon\"\n                  [ngClass]=\"'colorIcon-'+color\"></mat-icon>\n      </div>\n    </div>\n  </div>\n</div>\n<router-outlet></router-outlet>\n"
         },
         {
             "name": "PageComponent",
@@ -901,41 +907,31 @@
                 "type": "",
                 "defaultValue": "require.context('./', true, /\\.spec\\.ts$/)"
             },
-            {
-                "name": "environment",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/environments/environment.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "object",
-                "defaultValue": "{\n  production: false\n}"
-            },
-            {
-                "name": "environment",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/environments/environment.prod.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "object",
-                "defaultValue": "{\n  production: true\n}"
-            },
+          {
+            "name": "environment",
+            "ctype": "miscellaneous",
+            "subtype": "variable",
+            "file": "src/environments/environment.prod.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "object",
+            "defaultValue": "{\n  production: true\n}"
+          },
+          {
+            "name": "environment",
+            "ctype": "miscellaneous",
+            "subtype": "variable",
+            "file": "src/environments/environment.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "object",
+            "defaultValue": "{\n  production: false\n}"
+          },
             {
                 "name": "Large",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "src/stories/Button.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "LoggedIn",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/Header-cusotm.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -956,16 +952,6 @@
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "src/stories/Page.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "LoggedOut",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/Header-cusotm.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -1048,7 +1034,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story<HeaderComponent>",
-                "defaultValue": "(args: HeaderComponent) => (\n  {\n    props: args,\n  })"
+              "defaultValue": "(args: HeaderComponent) => (\n  {\n    props: args,\n    template: `<elix-header></elix-header>`\n  })"
             },
             {
                 "name": "Template",
@@ -1069,26 +1055,6 @@
                 "deprecationMessage": "",
                 "type": "Story<Page>",
                 "defaultValue": "(args: Page) => ({\n  props: args,\n})"
-            },
-            {
-                "name": "template2",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/Header-cusotm.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "Template2.bind({})"
-            },
-            {
-                "name": "Template2",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/Header-cusotm.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<HeaderComponent>",
-                "defaultValue": "(args: HeaderComponent) => {\n  const {resizeData, sayHello} = args\n  return {\n    props: {\n      ...args,\n      someProperty: sayHello,\n    }\n  }\n}"
             }
         ],
         "functions": [],
@@ -1116,29 +1082,29 @@
                     "type": "literal type"
                 }
             ],
-            "src/environments/environment.ts": [
-                {
-                    "name": "environment",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/environments/environment.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "object",
-                    "defaultValue": "{\n  production: false\n}"
-                }
+          "src/environments/environment.prod.ts": [
+            {
+              "name": "environment",
+              "ctype": "miscellaneous",
+              "subtype": "variable",
+              "file": "src/environments/environment.prod.ts",
+              "deprecated": false,
+              "deprecationMessage": "",
+              "type": "object",
+              "defaultValue": "{\n  production: true\n}"
+            }
             ],
-            "src/environments/environment.prod.ts": [
-                {
-                    "name": "environment",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/environments/environment.prod.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "object",
-                    "defaultValue": "{\n  production: true\n}"
-                }
+          "src/environments/environment.ts": [
+            {
+              "name": "environment",
+              "ctype": "miscellaneous",
+              "subtype": "variable",
+              "file": "src/environments/environment.ts",
+              "deprecated": false,
+              "deprecationMessage": "",
+              "type": "object",
+              "defaultValue": "{\n  production: false\n}"
+            }
             ],
             "src/stories/Button.stories.ts": [
                 {
@@ -1190,58 +1156,6 @@
                     "deprecationMessage": "",
                     "type": "Story<Button>",
                     "defaultValue": "(args: Button) => ({\n  props: args,\n})"
-                }
-            ],
-            "src/stories/Header-cusotm.stories.ts": [
-                {
-                    "name": "LoggedIn",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Header-cusotm.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "LoggedOut",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Header-cusotm.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Header-cusotm.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story<HeaderComponent>",
-                    "defaultValue": "(args: HeaderComponent) => (\n  {\n    props: args,\n  })"
-                },
-                {
-                    "name": "template2",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Header-cusotm.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template2.bind({})"
-                },
-                {
-                    "name": "Template2",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Header-cusotm.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story<HeaderComponent>",
-                    "defaultValue": "(args: HeaderComponent) => {\n  const {resizeData, sayHello} = args\n  return {\n    props: {\n      ...args,\n      someProperty: sayHello,\n    }\n  }\n}"
                 }
             ],
             "src/stories/Header.stories.ts": [
@@ -1297,17 +1211,29 @@
                     "type": "",
                     "defaultValue": "Template.bind({})"
                 },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Page.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story<Page>",
-                    "defaultValue": "(args: Page) => ({\n  props: args,\n})"
-                }
-            ]
+              {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/Page.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<Page>",
+                "defaultValue": "(args: Page) => ({\n  props: args,\n})"
+              }
+            ],
+          "src/stories/Header-cusotm.stories.ts": [
+            {
+              "name": "Template",
+              "ctype": "miscellaneous",
+              "subtype": "variable",
+              "file": "src/stories/Header-cusotm.stories.ts",
+              "deprecated": false,
+              "deprecationMessage": "",
+              "type": "Story<HeaderComponent>",
+              "defaultValue": "(args: HeaderComponent) => (\n  {\n    props: args,\n    template: `<elix-header></elix-header>`\n  })"
+            }
+          ]
         },
         "groupedFunctions": {},
         "groupedEnumerations": {},
@@ -1351,27 +1277,27 @@
         ]
     },
     "coverage": {
-        "count": 2,
-        "status": "low",
-        "files": [
-            {
-                "filePath": "src/app/app.component.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "AppComponent",
-                "coveragePercent": 0,
-                "coverageCount": "0/2",
-                "status": "low"
+      "count": 3,
+      "status": "low",
+      "files": [
+        {
+          "filePath": "src/app/app.component.ts",
+          "type": "component",
+          "linktype": "component",
+          "name": "AppComponent",
+          "coveragePercent": 0,
+          "coverageCount": "0/2",
+          "status": "low"
             },
-            {
-                "filePath": "src/app/module/header/header.component.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "HeaderComponent",
-                "coveragePercent": 0,
-                "coverageCount": "0/8",
-                "status": "low"
-            },
+        {
+          "filePath": "src/app/module/header/header.component.ts",
+          "type": "component",
+          "linktype": "component",
+          "name": "HeaderComponent",
+          "coveragePercent": 0,
+          "coverageCount": "0/9",
+          "status": "low"
+        },
             {
                 "filePath": "src/app/module/repository-container/repository-container-component.component.ts",
                 "type": "component",
@@ -1474,47 +1400,7 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "LoggedIn",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/Header-cusotm.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "LoggedOut",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/Header-cusotm.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
                 "name": "Template",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/Header-cusotm.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "template2",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/Header-cusotm.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Template2",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
