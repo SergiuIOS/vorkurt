@@ -1,15 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'elix-repository-tab-project',
   templateUrl: './repository-tab-project.component.html',
-  styleUrls: ['./repository-tab-project.component.sass']
+  styleUrls: ['./repository-tab-project.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class RepositoryTabProjectComponent implements OnInit {
+  routes: [{ name: string, path: string }] = [{name: '', path: ''}]
 
-  constructor() { }
+  constructor(private _router: ActivatedRoute) {
+  }
 
   ngOnInit(): void {
+    this.routes = this._router.snapshot.data.data.router
+    console.log(this.routes)
   }
 
 }
