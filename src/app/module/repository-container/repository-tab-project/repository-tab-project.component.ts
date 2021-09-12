@@ -13,6 +13,10 @@ export class RepositoryTabProjectComponent implements OnInit {
   constructor(private _router: ActivatedRoute) {
   }
 
+  handleClick(event: string) {
+    console.log(event)
+  }
+
   ngOnInit(): void {
     this.routes = this._router.snapshot.data.data.router
     console.log(this.routes)

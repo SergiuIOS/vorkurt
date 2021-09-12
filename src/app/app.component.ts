@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {SpinnerStateService} from "./spinner/spinner-state.service";
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,13 @@ import {Component} from '@angular/core';
 })
 export class AppComponent {
   title = 'vorkurt';
+  stateSpiner: boolean= false
+
+  constructor(private _stateSpiner: SpinnerStateService) {
+
+    this._stateSpiner.getState$.subscribe(resp => this.stateSpiner = resp)
+
+  }
+
+
 }

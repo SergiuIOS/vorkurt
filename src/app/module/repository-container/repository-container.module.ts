@@ -6,19 +6,25 @@ import {RepositoryContainerComponent} from "./repository-container-component.com
 import {RepositoryRoutingModule} from "./repository-routing.module";
 import {MatIconModule} from "@angular/material/icon";
 import {MatTabsModule} from '@angular/material/tabs';
+import {TableRepositoryComponent} from './table-repository/table-repository.component';
+import 'ag-grid-enterprise'
+import {AgGridModule} from "ag-grid-angular";
+import {AppModule} from "../../app.module";
 
 @NgModule({
   declarations: [
     RepositoryTopOneComponent,
     RepositoryTabProjectComponent,
-    RepositoryContainerComponent
+    RepositoryContainerComponent,
+    TableRepositoryComponent
   ],
-  imports: [
-    MatTabsModule,
-    CommonModule,
-    RepositoryRoutingModule,
-    MatIconModule
-  ]
+    imports: [
+        MatTabsModule,
+        CommonModule,
+        RepositoryRoutingModule,
+        MatIconModule,
+        AgGridModule.withComponents([])
+    ]
 })
 export class RepositoryContainerModule {
 }

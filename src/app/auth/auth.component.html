@@ -1,0 +1,18 @@
+<div class="flex justify-center items-center h-full">
+  <div>
+    <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)">
+      <div>
+        <h1 class="text-white text-4xl">Username</h1>
+        <input type="text" ngModel name="username" required>
+      </div>
+      <div>
+        <h1 class="text-white text-4xl">Password</h1>
+        <input type="password" ngModel name="password" required >
+      </div>
+      <div class="flex justify-end items-center mt-3">
+        <button class="bg-blue-400 hover:border-2 rounded-md text-white pr-3 pl-3 pb-2 pt-2 text-2xl" [disabled]="!authForm" type="submit">
+          Sign Up</button>
+      </div>
+    </form>
+  </div>
+</div>

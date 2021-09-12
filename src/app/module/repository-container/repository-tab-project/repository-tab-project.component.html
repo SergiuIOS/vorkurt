@@ -1,7 +1,14 @@
 <div class="flex forkurt__border">
   <nav class="flex flex-1 vorkurt__margin-nav">
     <div *ngFor="let route of routes" class="vorkurt__margin">
-      <a mat-tab-nav-bar class="flex flex-row" [routerLink]="route.path" routerLinkActive="active1">{{route.name}}</a>
+      <a mat-tab-nav-bar
+         class="flex flex-row"
+         [routerLink]="route.path"
+         routerLinkActive="active1"
+         (click)="handleClick(route.name)"
+
+      >{{route.name}}
+      </a>
     </div>
   </nav>
   <div class="flex flex-wrap">

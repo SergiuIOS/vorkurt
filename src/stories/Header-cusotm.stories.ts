@@ -7,7 +7,6 @@ import {CoreModule} from "../@core/core/core.module";
 import {MatIconModule} from "@angular/material/icon";
 import {FormsModule} from "@angular/forms";
 import {RouterTestingModule} from "@angular/router/testing";
-import {AppRoutingModule} from "../app/app-routing.module";
 import {RouterModule} from "@angular/router";
 
 export default {

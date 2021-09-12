@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { RepositoryContainerComponentComponent } from './repository-container-component.component';
+import {RepositoryContainerComponentComponent} from './repository-container-component.component';
 
 describe('RepositoryContainerComponentComponent', () => {
   let component: RepositoryContainerComponentComponent;
@@ -8,9 +8,9 @@ describe('RepositoryContainerComponentComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RepositoryContainerComponentComponent ]
+      declarations: [RepositoryContainerComponentComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

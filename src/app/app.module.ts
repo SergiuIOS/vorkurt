@@ -13,10 +13,14 @@ import {SharedModule} from "./shared/shared.module";
 import {firebaseConfig} from "./config/auth/firebase";
 import {AngularFireModule} from "@angular/fire/compat";
 import {AngularFireDatabaseModule} from "@angular/fire/compat/database";
+import { AuthComponent } from './auth/auth.component';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    AuthComponent,
+    SpinnerComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,6 +36,9 @@ import {AngularFireDatabaseModule} from "@angular/fire/compat/database";
     SharedModule
   ],
   providers: [],
+  exports: [
+    SpinnerComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

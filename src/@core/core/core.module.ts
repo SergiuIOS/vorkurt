@@ -1,8 +1,7 @@
-import {LOCALE_ID, NgModule, Optional, SkipSelf} from '@angular/core';
-import {CommonModule} from '@angular/common';
+import {NgModule} from '@angular/core';
 import {MatIconRegistry} from "@angular/material/icon";
 import {DomSanitizer} from "@angular/platform-browser";
-import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   imports: [HttpClientModule],

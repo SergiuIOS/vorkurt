@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { RepositoryTopOneComponent } from './repository-top-one.component';
+import {RepositoryTopOneComponent} from './repository-top-one.component';
 
 describe('RepositoryTopOneComponent', () => {
   let component: RepositoryTopOneComponent;
@@ -8,9 +8,9 @@ describe('RepositoryTopOneComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RepositoryTopOneComponent ]
+      declarations: [RepositoryTopOneComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

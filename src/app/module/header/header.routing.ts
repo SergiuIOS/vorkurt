@@ -11,7 +11,8 @@ const routes: Routes = [
       {
         path: ":id",
         data: {data: routerArray},
-        loadChildren: () => import('../repository-container/repository-container.module').then(m => m.RepositoryContainerModule)
+        loadChildren: () => import('../repository-container/repository-container.module').then(m => m.RepositoryContainerModule),
+
       }
     ]
   }
