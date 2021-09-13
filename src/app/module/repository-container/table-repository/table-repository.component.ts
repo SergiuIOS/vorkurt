@@ -11,7 +11,7 @@ import {SpinnerStateService} from "../../../spinner/spinner-state.service";
   styleUrls: ['./table-repository.component.scss']
 })
 export class TableRepositoryComponent implements OnInit, OnDestroy {
-
+  spinnerState: boolean = false
   columnDefs: any
   defaultColDef: any;
   sideBar: any
@@ -61,12 +61,14 @@ export class TableRepositoryComponent implements OnInit, OnDestroy {
     this._dataStore.dataStore$
       .pipe(takeUntil(this.unSubscribe$))
       .subscribe(resp => this.rowData = resp)
+
+    this._spinnerState.getState$.subscribe(resp => this.spinnerState = resp)
   }
 
   onPageChange(event: any) {
-    console.log(event.target.value)
     this.gridApi.paginationSetPageSize(Number(event.target.value))
     this._spinnerState.setStateBehaviorSpinner(true)
+    setTimeout(() => this._spinnerState.setStateBehaviorSpinner(false), 3000)
   }
 
   onGridReady(event: GridReadyEvent) {
@@ -74,14 +76,11 @@ export class TableRepositoryComponent implements OnInit, OnDestroy {
   }
 
   getContextMenuItems(params: any) {
-
     let result = [
       {
         name: 'Alert' + params.value,
         action: function () {
-
           window.alert('Alerting about' + params.value)
-
         }
       }
     ]

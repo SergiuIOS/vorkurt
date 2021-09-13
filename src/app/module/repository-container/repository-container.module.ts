@@ -9,7 +9,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {TableRepositoryComponent} from './table-repository/table-repository.component';
 import 'ag-grid-enterprise'
 import {AgGridModule} from "ag-grid-angular";
-import {AppModule} from "../../app.module";
+import {SharedModule} from "../../shared/shared.module";
 
 @NgModule({
   declarations: [
@@ -18,13 +18,14 @@ import {AppModule} from "../../app.module";
     RepositoryContainerComponent,
     TableRepositoryComponent
   ],
-    imports: [
-        MatTabsModule,
-        CommonModule,
-        RepositoryRoutingModule,
-        MatIconModule,
-        AgGridModule.withComponents([])
-    ]
+  imports: [
+    MatTabsModule,
+    CommonModule,
+    RepositoryRoutingModule,
+    MatIconModule,
+    AgGridModule.withComponents([]),
+    SharedModule
+  ]
 })
 export class RepositoryContainerModule {
 }
