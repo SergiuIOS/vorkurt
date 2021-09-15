@@ -1,5 +1,5 @@
 <div class="bg-primary-blue " [ngClass]="'iufce__parrent-header background-' + background">
-  <div class="flex pl-8 justify-center items-center h-16">
+  <div elixElixDrag class="flex pl-8 justify-center items-center h-16">
     <div class="w-8 h-8 mr-4" [routerLink]="['/']">
       <mat-icon [svgIcon]="'fa_brands:github'" class="iufce__icon " [ngClass]="'colorIcon-'+color"></mat-icon>
     </div>
@@ -19,13 +19,15 @@
       <div class="w-5 h-5 ml-2">
         <mat-icon [svgIcon]="'fa_solid:plus'" class="iufce__icon" [ngClass]="'colorIcon-'+color"></mat-icon>
       </div>
-      <div class="w-5 h-5 ml-2">
-        <mat-icon (click)="onSayHello.emit($event)"
+      <div class="w-5 h-5 ml-2" #pointIcon>
+        <mat-icon
+                  (click)="retriveCoordinates(pointIcon)"
                   [svgIcon]="'fa_solid:user-circle'"
                   class="iufce__icon"
                   [ngClass]="'colorIcon-'+color"></mat-icon>
       </div>
     </div>
   </div>
+  <elix-pop-up-login></elix-pop-up-login>
 </div>
 <router-outlet></router-outlet>

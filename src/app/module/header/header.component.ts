@@ -1,7 +1,8 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {animate, state, style, transition, trigger} from "@angular/animations";
 import {ConnectionService} from "../../shared/utils/services/firebase/connection.service";
 import {map} from "rxjs/operators";
+import {PopUpStateService} from "./pop-up-login/pop-up-state.service";
 
 @Component({
   selector: 'elix-header',
@@ -34,8 +35,14 @@ export class HeaderComponent implements OnInit {
   inputValue = ''
   value: any
   value1: any
+  @Input() name: string
+  @Input() color = 'transparent'
+  @Output()
+  onSayHello = new EventEmitter<HTMLElement>()
+  @Input() background: 'light' | 'dark' | 'transparent' = 'transparent'
+  @ViewChild('pointIcon') pointIcon: ElementRef
 
-  constructor(private _firebaseTry: ConnectionService) {
+  constructor(private _firebaseTry: ConnectionService, private _popUpState: PopUpStateService) {
     this._firebaseTry.setUrl('/repository')
   }
 
@@ -52,15 +59,16 @@ export class HeaderComponent implements OnInit {
     console.log("value ", this.value, "value 1", this.value1)
   }
 
-  @Input() name: string
-  @Input() color = 'transparent'
-  @Output()
-  onSayHello = new EventEmitter<Event>()
-
-  @Input() background: 'light' | 'dark' | 'transparent' = 'transparent'
-
   resizeData(event: Event) {
     this.inputValue = ' '
   }
 
+  retriveCoordinates(event: HTMLElement) {
+    this.onSayHello.emit(event)
+    this._popUpState.statePopLogin(true)
+    this._popUpState.coordinates({
+      offsetX: this.pointIcon.nativeElement.offsetLeft,
+      offsetY: this.pointIcon.nativeElement.offsetTopx
+    });
+  }
 }

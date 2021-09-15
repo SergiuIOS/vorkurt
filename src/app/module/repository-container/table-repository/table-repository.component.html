@@ -1,4 +1,3 @@
-
 <select (change)="onPageChange($event)">
   <option value="20">20</option>
   <option value="50">50</option>
@@ -6,7 +5,8 @@
   <option value="250">250</option>
   <option value="500">500</option>
 </select>
-<elix-spinner *ngIf="spinnerState"></elix-spinner>
+
+<elix-spinner></elix-spinner>
 <ag-grid-angular
   *ngIf="!spinnerState"
   #agGrid

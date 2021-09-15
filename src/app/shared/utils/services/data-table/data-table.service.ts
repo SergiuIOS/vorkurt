@@ -14,7 +14,11 @@ export class DataTableService {
   }
 
   dataStoreBehavior(data: string) {
-    return this._httpClient.get(data).subscribe(resp => this._dataStoreBehavior.next(resp))
+    return this._httpClient.get(data).subscribe(resp => {
+      setTimeout(() =>
+          this._dataStoreBehavior.next(resp)
+      , 3000)
+    })
   }
 
 }

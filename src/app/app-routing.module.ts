@@ -10,7 +10,7 @@ const routes: Routes = [
     loadChildren: () => import('./module/header/header.module').then(m => m.HeaderModule),
   },
   {
-    path: 'test/auth',
+    path: 'auth/test',
     component: AuthComponent
   }
 ];
