@@ -52,6 +52,8 @@ export class TableRepositoryComponent implements OnInit, OnDestroy {
       enablePivot: true,
       enableValue: true,
       animateRows: true,
+      rowMultiSelectWithClick: true,
+      rowSelection: 'multiple',
     }
     this.sideBar = {toolPanels: ['columns']}
     this.rowGroupPanelShow = 'always'

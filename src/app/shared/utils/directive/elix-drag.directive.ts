@@ -26,7 +26,7 @@ export class ElixDragDirective implements OnInit{
       if (!this.dragging) {
         return;
       }
-      newWidth(evt.clientX - _elementRef.nativeElement.offsetLeft)
+      newWidth(evt.clientX + _elementRef.nativeElement.offsetLeft)
       evt.stopPropagation();
     };
 
