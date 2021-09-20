@@ -35,3 +35,9 @@ I added some property new such as
 #### strictPropertyInitialization : true
 
 which we don't need it anymore to initialization evry property
+
+##### Add The @HostListener and @HostBinding
+  With the HostBinding we can access either one element.
+e.g 
+  @HostBinding('style.backgroundColor') backgroundColor: string = 'color' (must to be initialized this parameter)
+  

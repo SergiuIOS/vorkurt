@@ -2,15 +2,17 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {AgGridModule} from "ag-grid-angular";
 import {AuthComponent} from "./auth/auth.component";
+import {AuthGuardGuard} from "./shared/utils/services";
 
 const routes: Routes = [
-  {path: '', redirectTo:'/table', pathMatch:'full'},
+  {path: '', redirectTo: '/auth/test', pathMatch: 'full'},
   {
     path: '',
+    canActivate: [AuthGuardGuard],
     loadChildren: () => import('./module/header/header.module').then(m => m.HeaderModule),
   },
   {
-    path: 'test/auth',
+    path: 'auth/test',
     component: AuthComponent
   }
 ];

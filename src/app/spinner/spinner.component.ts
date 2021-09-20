@@ -8,7 +8,7 @@ import {tap} from "rxjs/operators";
   styleUrls: ['./spinner.component.scss']
 })
 export class SpinnerComponent implements OnInit {
-  private _showSppiner: boolean = false
+  private _showSppiner: boolean
 
   constructor(private _spinnerStateService: SpinnerStateService) {
   }

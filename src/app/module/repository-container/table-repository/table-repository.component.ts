@@ -20,12 +20,13 @@ export class TableRepositoryComponent implements OnInit, OnDestroy {
   rowData: []
   gridApi: GridApi
   paginationSize = 20
-  private unSubscribe$: Subject<void> = new Subject<void>()
   gridOption = <GridOptions>{
     getContextMenuItems: this.getContextMenuItems
   }
+  private unSubscribe$: Subject<void> = new Subject<void>()
 
   constructor(private _dataStore: DataTableService, private _spinnerState: SpinnerStateService) {
+    this._spinnerState.setStateBehaviorSpinner(true)
     this.columnDefs = [
       {
         headerName: "Group 1",
@@ -51,6 +52,8 @@ export class TableRepositoryComponent implements OnInit, OnDestroy {
       enablePivot: true,
       enableValue: true,
       animateRows: true,
+      rowMultiSelectWithClick: true,
+      rowSelection: 'multiple',
     }
     this.sideBar = {toolPanels: ['columns']}
     this.rowGroupPanelShow = 'always'
@@ -60,9 +63,13 @@ export class TableRepositoryComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this._dataStore.dataStore$
       .pipe(takeUntil(this.unSubscribe$))
-      .subscribe(resp => this.rowData = resp)
-
+      .subscribe(resp => {
+          this.rowData = resp
+          this._spinnerState.setStateBehaviorSpinner(false)
+        }
+      )
     this._spinnerState.getState$.subscribe(resp => this.spinnerState = resp)
+
   }
 
   onPageChange(event: any) {
@@ -78,9 +85,9 @@ export class TableRepositoryComponent implements OnInit, OnDestroy {
   getContextMenuItems(params: any) {
     let result = [
       {
-        name: 'Alert' + params.value,
+        name: 'Alert ' + params.value,
         action: function () {
-          window.alert('Alerting about' + params.value)
+          window.alert('Alerting about ' + params.value)
         }
       }
     ]

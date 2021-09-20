@@ -1,17 +1,25 @@
 <div class="flex justify-center items-center h-full">
   <div>
     <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)">
-      <div>
-        <h1 class="text-white text-4xl">Username</h1>
-        <input type="text" ngModel name="username" required>
+      <div class="flex-col mt-3 mb-8">
+        <div>
+          <h1 class="text-white text-4xl">Username</h1>
+          <input type="email" ngModel name="email" required>
+        </div>
+        <span *ngIf="feedback.email" class="text-red-600 absolute my-1"> * email is not valid</span>
       </div>
-      <div>
-        <h1 class="text-white text-4xl">Password</h1>
-        <input type="password" ngModel name="password" required >
+      <div class="flex-col mt-3 mb-8">
+        <div>
+          <h1 class="text-white text-4xl">Password</h1>
+          <input type="password" minlength="6" ngModel name="password" required>
+        </div>
+        <span *ngIf="feedback.password" class="text-red-600 absolute my-1"> * Password to short</span>
       </div>
       <div class="flex justify-end items-center mt-3">
-        <button class="bg-blue-400 hover:border-2 rounded-md text-white pr-3 pl-3 pb-2 pt-2 text-2xl" [disabled]="!authForm" type="submit">
-          Sign Up</button>
+        <button class="bg-blue-400 hover:border-2 rounded-md text-white pr-3 pl-3 pb-2 pt-2" [disabled]="!authForm"
+                type="submit">
+          Sign In
+        </button>
       </div>
     </form>
   </div>
