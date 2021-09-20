@@ -8,6 +8,11 @@ import {MatIconModule} from "@angular/material/icon";
 import {FormsModule} from "@angular/forms";
 import {RouterTestingModule} from "@angular/router/testing";
 import {RouterModule} from "@angular/router";
+import {AngularFirestore} from "@angular/fire/compat/firestore";
+import firebase from "firebase/compat";
+import Firestore = firebase.firestore.Firestore;
+import {AngularFireModule} from "@angular/fire/compat";
+import {firebaseConfig} from "../app/config/auth/firebase";
 
 export default {
   title: 'Header',
@@ -35,10 +40,12 @@ export default {
           path: 'repozitory',
           loadChildren: () => import('./../app/module/repository-container/repository-container.module').then(m => m.RepositoryContainerModule)
         },
-        ])
+        ]),
+        AngularFireModule.initializeApp(firebaseConfig),
+
       ],
       providers: [
-        {provide: APP_BASE_HREF, useValue: '/'}
+        {provide: APP_BASE_HREF, useValue: '/'},
       ]
     }),
   ],

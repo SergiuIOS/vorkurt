@@ -4,6 +4,8 @@ import {UserService} from "../user/user-service";
 import {Router} from "@angular/router";
 import {User} from "../../interfaces/user/user";
 import {IAuthInfoUser} from "../../interfaces/auth/auth-info-user.types";
+import {throwError} from "rxjs";
+import {SpinnerStateService} from "../../../../spinner/spinner-state.service";
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +16,8 @@ export class AuthService {
   constructor(private ngZone: NgZone,
               public afAuth: AngularFireAuth,
               private _router: Router,
-              private _userService: UserService
+              private _userService: UserService,
+              private _sppinerService: SpinnerStateService
   ) {
     this.checkLocalStorage()
   }
@@ -26,20 +29,33 @@ export class AuthService {
         console.log('Authenticated');
         this._userService.setUserLoggedIn(auth)
       } else {
+        this._sppinerService.setStateBehaviorSpinner(false)
         console.log('Not authenticated')
       }
     })
+
   }
 
   signInWithEmail(infoUser: IAuthInfoUser) {
     return this.afAuth.signInWithEmailAndPassword(infoUser.email, infoUser.password)
       .then((result) => {
+        this._userService.setUserLoggedIn(result)
         this.ngZone.run(() => {
           this._router.navigate(['/table'])
         })
       }).catch(err => {
         console.log(err)
+        this._router.navigate(['/auth/test'])
+        this._sppinerService.setStateBehaviorSpinner(false)
       })
+  }
+
+  signUp(infoUser: IAuthInfoUser) {
+    return this.afAuth.createUserWithEmailAndPassword(infoUser.email, infoUser.password).then(() => {
+      this._sppinerService.setStateBehaviorSpinner(false)
+
+    })
+      .catch(err => throwError(err))
   }
 
   logout() {

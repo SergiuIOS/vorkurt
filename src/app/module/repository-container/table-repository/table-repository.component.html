@@ -6,7 +6,7 @@
   <option value="500">500</option>
 </select>
 
-<elix-spinner></elix-spinner>
+<elix-spinner *ngIf="spinnerState"></elix-spinner>
 <ag-grid-angular
   *ngIf="!spinnerState"
   #agGrid
