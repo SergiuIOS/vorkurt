@@ -14,25 +14,27 @@ import {firebaseConfig} from "./config/auth/firebase";
 import {AngularFireModule} from "@angular/fire/compat";
 import {AngularFireDatabaseModule} from "@angular/fire/compat/database";
 import { AuthComponent } from './auth/auth.component';
+import {MatRippleModule} from "@angular/material/core";
 
 @NgModule({
   declarations: [
     AppComponent,
     AuthComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatIconModule,
-    AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireDatabaseModule,
-    FormsModule,
-    RepositoryContainerModule,
-    CoreModule,
-    AgGridModule.withComponents([]),
-    SharedModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatIconModule,
+        AngularFireModule.initializeApp(firebaseConfig),
+        AngularFireDatabaseModule,
+        FormsModule,
+        RepositoryContainerModule,
+        CoreModule,
+        AgGridModule.withComponents([]),
+        SharedModule,
+        MatRippleModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
