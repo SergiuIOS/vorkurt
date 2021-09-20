@@ -8,6 +8,8 @@ import { PopUpLoginComponent } from './pop-up-login/pop-up-login.component';
 import {OverlayModule} from "@angular/cdk/overlay";
 import {DragDropModule} from "@angular/cdk/drag-drop";
 import {SharedModule} from "../../shared/shared.module";
+import {MatButtonModule} from "@angular/material/button";
+import {MatTooltipModule} from "@angular/material/tooltip";
 
 
 @NgModule({
@@ -22,7 +24,9 @@ import {SharedModule} from "../../shared/shared.module";
     CommonModule,
     AppHeaderRouting,
     DragDropModule,
-    SharedModule
+    SharedModule,
+    MatButtonModule,
+    MatTooltipModule
   ]
 })
 export class HeaderModule {

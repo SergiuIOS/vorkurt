@@ -1,8 +1,10 @@
 import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {animate, state, style, transition, trigger} from "@angular/animations";
 import {ConnectionService} from "../../shared/utils/services/firebase/connection.service";
-import {map} from "rxjs/operators";
+import {catchError, map} from "rxjs/operators";
 import {PopUpStateService} from "./pop-up-login/pop-up-state.service";
+import {throwError} from "rxjs";
+import {AuthService} from "../../shared/utils/services";
 
 @Component({
   selector: 'elix-header',
@@ -42,7 +44,8 @@ export class HeaderComponent implements OnInit {
   @Input() background: 'light' | 'dark' | 'transparent' = 'transparent'
   @ViewChild('pointIcon') pointIcon: ElementRef
 
-  constructor(private _firebaseTry: ConnectionService, private _popUpState: PopUpStateService) {
+  constructor(private _firebaseTry: ConnectionService, private _popUpState: PopUpStateService,
+              ) {
     this._firebaseTry.setUrl('/repository')
   }
 
@@ -56,7 +59,6 @@ export class HeaderComponent implements OnInit {
               a[Object.keys(a)[0]]
           }
         }))).subscribe(data => console.log(data))
-    console.log("value ", this.value, "value 1", this.value1)
   }
 
   resizeData(event: Event) {
