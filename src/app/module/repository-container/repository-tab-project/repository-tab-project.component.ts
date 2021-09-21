@@ -14,12 +14,11 @@ export class RepositoryTabProjectComponent implements OnInit {
   }
 
   handleClick(event: string) {
-    console.log(event)
+    return event
   }
 
   ngOnInit(): void {
     this.routes = this._router.snapshot.data.data.router
-    console.log(this.routes)
   }
 
 }
