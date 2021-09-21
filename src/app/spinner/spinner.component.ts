@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {SpinnerStateService} from "./spinner-state.service";
+import {tap} from "rxjs/operators";
 
 @Component({
   selector: 'elix-spinner',
@@ -7,6 +8,8 @@ import {SpinnerStateService} from "./spinner-state.service";
   styleUrls: ['./spinner.component.scss']
 })
 export class SpinnerComponent implements OnInit {
+  private _showSppiner: boolean
+
   constructor(private _spinnerStateService: SpinnerStateService) {
   }
 
@@ -18,6 +21,7 @@ export class SpinnerComponent implements OnInit {
 
   ngOnInit(): void {
     this._spinnerStateService.getState$
+      .pipe(tap((res) => console.log(res)))
       .subscribe(resp => this._showSppiner = resp)
   }
 
