@@ -19,9 +19,7 @@ export class SpinnerComponent implements OnInit {
   ngOnInit(): void {
     this._spinnerStateService.getState$
       .subscribe(resp => this._showSppiner = resp)
-    console.log('Sami', 'Denis')
-    console.log('test')
-    console.log('Isvan')
+      console.log('Commit 1')
   }
 
 }
