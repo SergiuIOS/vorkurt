@@ -11,6 +11,7 @@ import {SpinnerStateService} from "../spinner/spinner-state.service";
 })
 export class AuthComponent implements OnInit {
   isSignedIn = false
+  logedIn = true
   feedback = {password: false, email: false}
   private _regexEmail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
@@ -32,19 +33,25 @@ export class AuthComponent implements OnInit {
       if (this._regexEmail.test(String(
         form.value.email).toLowerCase()) && String(form.value.password).length >= 6) {
         this._sppinerService.setStateBehaviorSpinner(true)
-        try {
-          this._authService.signInWithEmail(form.value).then((resp: any) => {
-              this.router.navigate(['/table'])
-            },
-            async (err: any) => {
-              try {
-        
-              } catch (e) {
-                throw e
-              }
-            })
-        } catch (e) {
-          console.log(e)
+        if (this.logedIn) {
+          try {
+            this._authService.signInWithEmail(form.value).then((resp: any) => {
+              },
+              async (err: any) => {
+                try {
+
+                } catch (e) {
+                  throw e
+                }
+              })
+          } catch (e) {
+            console.log(e)
+          }
+        } else {
+          this._sppinerService.setStateBehaviorSpinner(true)
+          this._authService.signUp(form.value).catch(e => {
+            console.log(e)
+          })
         }
         form.reset()
       } else {
@@ -54,6 +61,10 @@ export class AuthComponent implements OnInit {
       }
     } catch (e) {
     }
-    this._sppinerService.setStateBehaviorSpinner(false)
   }
+
+  changeSignIn() {
+    this.logedIn = !this.logedIn
+  }
+
 }

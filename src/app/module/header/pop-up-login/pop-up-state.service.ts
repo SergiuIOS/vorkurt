@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {BehaviorSubject} from "rxjs";
+import {BehaviorSubject, Subject} from "rxjs";
 
 export interface IOffsetPopUp {
   offsetX: number,
@@ -13,7 +13,7 @@ export class PopUpStateService {
   private _statePopUpLogin: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false)
   statePopUp$ = this._statePopUpLogin.asObservable()
 
-  private _coordinates: BehaviorSubject<IOffsetPopUp> = new BehaviorSubject<IOffsetPopUp>({offsetX: 400} as IOffsetPopUp)
+  private _coordinates: Subject<IOffsetPopUp> = new Subject<IOffsetPopUp>()
   coordinates$ = this._coordinates.asObservable()
 
   coordinates(value: IOffsetPopUp) {
