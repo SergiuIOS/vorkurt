@@ -49,7 +49,6 @@ export class AuthComponent implements OnInit {
           }
         } else {
           this._sppinerService.setStateBehaviorSpinner(true)
-
           this._authService.signUp(form.value).catch(e => {
             console.log(e)
           })
