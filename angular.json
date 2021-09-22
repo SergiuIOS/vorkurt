@@ -40,8 +40,7 @@
               "src/assets/styles/tailwind.css",
               "./node_modules/@angular/cdk/overlay-prebuilt.css"
             ],
-            "scripts": [
-            ]
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -111,6 +110,37 @@
               "src/assets/styles/styles.scss"
             ],
             "scripts": []
+          }
+        },
+        "cypress-run": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "vorkurt:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "vorkurt:serve:production"
+            }
+          }
+        },
+        "cypress-open": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "watch": true,
+            "headless": false
+          }
+        },
+        "e2e": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "vorkurt:serve",
+            "watch": true,
+            "headless": false
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "vorkurt:serve:production"
+            }
           }
         }
       }

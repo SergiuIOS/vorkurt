@@ -68,5 +68,4 @@ export class AuthComponent implements OnInit {
   changeSignIn() {
     this.logedIn = !this.logedIn
   }
-
 }

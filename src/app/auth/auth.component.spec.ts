@@ -49,4 +49,7 @@ describe('AuthComponent', () => {
   it('should Be Username', function () {
     expect(userName.textContent).toContain('Username')
   });
+
+  it('should test authenticate', function () {
+  });
 });
