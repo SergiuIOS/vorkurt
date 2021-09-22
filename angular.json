@@ -25,14 +25,14 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "inlineStyleLanguage": "sass",
+            "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
-              "src/assets/styles/custom-style.scss",
+              "./src/assets/styles/custom-style.scss",
               "./node_modules/ag-grid-community/dist/styles/ag-grid.css",
               "./node_modules/ag-grid-community/dist/styles/ag-theme-alpine.css",
               "node_modules/reset-css/reset.css",
@@ -40,15 +40,16 @@
               "src/assets/styles/tailwind.css",
               "./node_modules/@angular/cdk/overlay-prebuilt.css"
             ],
-            "scripts": []
+            "scripts": [
+            ]
           },
           "configurations": {
             "production": {
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "5mb",
+                  "maximumError": "9mb"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -107,7 +108,7 @@
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
-              "src/styles.scss"
+              "src/assets/styles/styles.scss"
             ],
             "scripts": []
           }

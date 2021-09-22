@@ -4,6 +4,7 @@ import {Subject} from "rxjs";
 import {takeUntil} from "rxjs/operators";
 import {GridApi, GridOptions, GridReadyEvent} from "ag-grid-community";
 import {SpinnerStateService} from "../../../spinner/spinner-state.service";
+import {TestBed} from "@angular/core/testing";
 
 @Component({
   selector: 'elix-table-repository',

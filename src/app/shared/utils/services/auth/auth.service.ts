@@ -42,11 +42,12 @@ export class AuthService {
         this._userService.setUserLoggedIn(result)
         this.ngZone.run(() => {
           this._router.navigate(['/table'])
+          this._sppinerService.setStateBehaviorSpinner(true)
         })
       }).catch(err => {
-        console.log(err)
         this._router.navigate(['/auth/test'])
         this._sppinerService.setStateBehaviorSpinner(false)
+        return err
       })
   }
 

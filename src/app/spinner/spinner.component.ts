@@ -13,7 +13,6 @@ export class SpinnerComponent implements OnInit {
   constructor(private _spinnerStateService: SpinnerStateService) {
   }
 
-  private _showSppiner: boolean
 
   get showSppiner(): boolean {
     return this._showSppiner

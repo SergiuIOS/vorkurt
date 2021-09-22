@@ -16,6 +16,7 @@ export class AuthComponent implements OnInit {
   private _regexEmail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
   constructor(private _authService: AuthService, private router: Router, private _sppinerService: SpinnerStateService) {
+    this._sppinerService.setStateBehaviorSpinner(false)
   }
 
   ngOnInit(): void {
@@ -41,16 +42,16 @@ export class AuthComponent implements OnInit {
                 try {
 
                 } catch (e) {
-                  throw e
+                  return e
                 }
               })
           } catch (e) {
-            console.log(e)
+            return e
           }
         } else {
           this._sppinerService.setStateBehaviorSpinner(true)
           this._authService.signUp(form.value).catch(e => {
-            console.log(e)
+            return e
           })
         }
         form.reset()
@@ -60,6 +61,7 @@ export class AuthComponent implements OnInit {
 
       }
     } catch (e) {
+      return e
     }
   }
 

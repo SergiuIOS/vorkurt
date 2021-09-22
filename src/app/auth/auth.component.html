@@ -13,7 +13,7 @@
     <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)">
       <div class="flex-col mt-3 mb-8">
         <div>
-          <h1 class="text-white text-4xl">Username</h1>
+          <h1 id="username" class="text-white text-4xl elixir-username">Username</h1>
           <input type="email" ngModel name="email" required>
         </div>
         <span *ngIf="feedback.email" class="text-red-600 absolute my-1"> * email is not valid</span>
