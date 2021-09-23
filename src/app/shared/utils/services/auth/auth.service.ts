@@ -5,7 +5,7 @@ import {Router} from "@angular/router";
 import {User} from "../../interfaces/user/user";
 import {IAuthInfoUser} from "../../interfaces/auth/auth-info-user.types";
 import {throwError} from "rxjs";
-import {SpinnerStateService} from "../../../../spinner/spinner-state.service";
+import {SpinnerStateService} from "../../../spinner/spinner-state.service";
 
 @Injectable({
   providedIn: 'root'
