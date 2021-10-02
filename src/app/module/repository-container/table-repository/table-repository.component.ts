@@ -1,9 +1,10 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {DataTableService} from "../../../shared/utils/services/data-table/data-table.service";
 import {Subject} from "rxjs";
 import {takeUntil} from "rxjs/operators";
 import {GridApi, GridOptions, GridReadyEvent} from "ag-grid-community";
-import {SpinnerStateService} from "../../../spinner/spinner-state.service";
+import {SpinnerStateService} from "../../../shared/spinner/spinner-state.service";
+import {TestBed} from "@angular/core/testing";
 
 @Component({
   selector: 'elix-table-repository',
@@ -17,8 +18,10 @@ export class TableRepositoryComponent implements OnInit, OnDestroy {
   sideBar: any
   rowGroupPanelShow: any
   pivotPanelShow: any
+  @Input()
   rowData: []
   gridApi: GridApi
+  @Input()
   paginationSize = 20
   gridOption = <GridOptions>{
     getContextMenuItems: this.getContextMenuItems
@@ -73,7 +76,7 @@ export class TableRepositoryComponent implements OnInit, OnDestroy {
   }
 
   onPageChange(event: any) {
-    this.gridApi.paginationSetPageSize(Number(event.target.value))
+    this.gridApi.paginationSetPageSize(Number(this.paginationSize))
     this._spinnerState.setStateBehaviorSpinner(true)
     setTimeout(() => this._spinnerState.setStateBehaviorSpinner(false), 3000)
   }

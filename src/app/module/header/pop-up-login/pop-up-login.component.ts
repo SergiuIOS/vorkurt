@@ -2,7 +2,7 @@ import {Component, ElementRef, OnInit, Renderer2, ViewChild} from '@angular/core
 import {PopUpStateService} from "./pop-up-state.service";
 import {AuthService} from "../../../shared/utils/services";
 import {UserService} from "../../../shared/utils/services/user/user-service";
-import {SpinnerStateService} from "../../../spinner/spinner-state.service";
+import {SpinnerStateService} from "../../../shared/spinner/spinner-state.service";
 
 @Component({
   selector: 'elix-pop-up-login',
@@ -27,5 +27,6 @@ export class PopUpLoginComponent implements OnInit {
     this._popState.statePopLogin(false)
     this._spinnerService.setStateBehaviorSpinner(true)
     this._authService.logout()
+    return 1
   }
 }

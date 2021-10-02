@@ -2,8 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {NgForm} from "@angular/forms";
 import {AuthService} from "../shared/utils/services";
 import {Router} from "@angular/router";
-import {SpinnerStateService} from "../spinner/spinner-state.service";
-import {throwError} from "rxjs";
+import {SpinnerStateService} from "../shared/spinner/spinner-state.service";
 
 @Component({
   selector: 'elix-auth',
@@ -19,11 +18,10 @@ export class AuthComponent implements OnInit {
   constructor(private _authService: AuthService,
               private router: Router,
               private _sppinerService: SpinnerStateService) {
+    this._sppinerService.setStateBehaviorSpinner(false)
   }
 
   ngOnInit(): void {
-    this._sppinerService.setStateBehaviorSpinner(false)
-
     if (localStorage.getItem('user') !== null) {
       this.isSignedIn = true
     } else {
@@ -55,8 +53,7 @@ export class AuthComponent implements OnInit {
         } else {
           this._sppinerService.setStateBehaviorSpinner(true)
           this._authService.signUp(form.value).catch(e => {
-            this._sppinerService.setStateBehaviorSpinner(false)
-            console.log(e)
+            return e
           })
         }
         form.reset()

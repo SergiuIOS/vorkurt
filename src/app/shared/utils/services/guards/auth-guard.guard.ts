@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree} from '@angular/router';
 import {AngularFireAuth} from "@angular/fire/compat/auth";
 import {UserService} from "../user/user-service";
-import {SpinnerStateService} from "../../../../spinner/spinner-state.service";
+import {SpinnerStateService} from "../../../spinner/spinner-state.service";
 
 @Injectable({
   providedIn: 'root'

@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from "@angular/router";
-import {RepositoryContainerComponent} from "./repository-container-component.component";
+import {RepositoryContainerComponent} from "./repository-container.component";
 import {TableRepositoryComponent} from "./table-repository/table-repository.component";
 import {TableDataResolver} from "../../shared/utils/services/resolvers/table/table-data.resolver";
 

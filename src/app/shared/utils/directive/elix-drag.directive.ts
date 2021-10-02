@@ -5,6 +5,7 @@
 })
 export class ElixDragDirective implements OnInit{
   @Input() defaultColor : string = 'transparent'
+
   constructor(private _elementRef: ElementRef, private _renderer: Renderer2) {const self = this;
 
     function preventSeePointerWhenResize() {

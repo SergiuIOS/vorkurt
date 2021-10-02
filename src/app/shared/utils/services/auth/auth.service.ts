@@ -5,7 +5,7 @@ import {Router} from "@angular/router";
 import {User} from "../../interfaces/user/user";
 import {IAuthInfoUser} from "../../interfaces/auth/auth-info-user.types";
 import {throwError} from "rxjs";
-import {SpinnerStateService} from "../../../../spinner/spinner-state.service";
+import {SpinnerStateService} from "../../../spinner/spinner-state.service";
 
 @Injectable({
   providedIn: 'root'
@@ -41,11 +41,12 @@ export class AuthService {
         this._userService.setUserLoggedIn(result)
         this.ngZone.run(() => {
           this._router.navigate(['/table'])
+          this._sppinerService.setStateBehaviorSpinner(true)
         })
       }).catch(err => {
-        console.log(err)
         this._router.navigate(['/auth/test'])
         this._sppinerService.setStateBehaviorSpinner(false)
+        return err
       })
   }
 

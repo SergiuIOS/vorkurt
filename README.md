@@ -41,3 +41,5 @@ which we don't need it anymore to initialization evry property
 e.g 
   @HostBinding('style.backgroundColor') backgroundColor: string = 'color' (must to be initialized this parameter)
   
+### For run test cypress
+  npm e2e
