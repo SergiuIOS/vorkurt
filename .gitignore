@@ -46,3 +46,4 @@ Thumbs.db
 /src/app/config/auth
 .nvimlog
 .gitignore
+test.sh
