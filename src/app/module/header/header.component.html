@@ -21,13 +21,12 @@
       </div>
       <div class="w-5 h-5 ml-2" #pointIcon>
         <mat-icon
-                  (click)="retriveCoordinates(pointIcon)"
+                  (click)="retriveCoordinates($event)"
                   [svgIcon]="'fa_solid:user-circle'"
                   class="iufce__icon"
                   [ngClass]="'colorIcon-'+color"></mat-icon>
       </div>
     </div>
   </div>
-  <elix-pop-up-login></elix-pop-up-login>
 </div>
 <router-outlet></router-outlet>

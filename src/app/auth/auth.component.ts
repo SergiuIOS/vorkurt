@@ -3,6 +3,7 @@ import {NgForm} from "@angular/forms";
 import {AuthService} from "../shared/utils/services";
 import {Router} from "@angular/router";
 import {SpinnerStateService} from "../shared/spinner/spinner-state.service";
+import {throwError} from "rxjs";
 
 @Component({
   selector: 'elix-auth',
@@ -15,7 +16,9 @@ export class AuthComponent implements OnInit {
   feedback = {password: false, email: false}
   private _regexEmail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-  constructor(private _authService: AuthService, private router: Router, private _sppinerService: SpinnerStateService) {
+  constructor(private _authService: AuthService,
+              private router: Router,
+              private _sppinerService: SpinnerStateService) {
     this._sppinerService.setStateBehaviorSpinner(false)
   }
 
@@ -42,11 +45,11 @@ export class AuthComponent implements OnInit {
                 try {
 
                 } catch (e) {
-                  return e
+                  throw e
                 }
               })
           } catch (e) {
-            return e
+            console.log(e)
           }
         } else {
           this._sppinerService.setStateBehaviorSpinner(true)
@@ -61,11 +64,12 @@ export class AuthComponent implements OnInit {
 
       }
     } catch (e) {
-      return e
+      throwError(e)
     }
   }
 
   changeSignIn() {
     this.logedIn = !this.logedIn
   }
+
 }
