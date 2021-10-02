@@ -4,13 +4,12 @@ import {AppHeaderRouting} from "./header.routing";
 import {HeaderComponent} from "./header.component";
 import {MatIconModule} from "@angular/material/icon";
 import {FormsModule} from "@angular/forms";
-import { PopUpLoginComponent } from './pop-up-login/pop-up-login.component';
+import {PopUpLoginComponent} from './pop-up-login/pop-up-login.component';
 import {OverlayModule} from "@angular/cdk/overlay";
 import {DragDropModule} from "@angular/cdk/drag-drop";
 import {SharedModule} from "../../shared/shared.module";
 import {MatButtonModule} from "@angular/material/button";
 import {MatTooltipModule} from "@angular/material/tooltip";
-
 
 @NgModule({
   declarations: [
@@ -26,7 +25,10 @@ import {MatTooltipModule} from "@angular/material/tooltip";
     DragDropModule,
     SharedModule,
     MatButtonModule,
-    MatTooltipModule
+    MatTooltipModule,
+  ],
+  entryComponents: [
+    PopUpLoginComponent
   ]
 })
 export class HeaderModule {

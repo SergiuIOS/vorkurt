@@ -13,28 +13,30 @@ import {SharedModule} from "./shared/shared.module";
 import {firebaseConfig} from "./config/auth/firebase";
 import {AngularFireModule} from "@angular/fire/compat";
 import {AngularFireDatabaseModule} from "@angular/fire/compat/database";
-import { AuthComponent } from './auth/auth.component';
+import {AuthComponent} from './auth/auth.component';
 import {MatRippleModule} from "@angular/material/core";
+import {OverlayModule} from "@angular/cdk/overlay";
 
 @NgModule({
   declarations: [
     AppComponent,
     AuthComponent,
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        MatIconModule,
-        AngularFireModule.initializeApp(firebaseConfig),
-        AngularFireDatabaseModule,
-        FormsModule,
-        RepositoryContainerModule,
-        CoreModule,
-        AgGridModule.withComponents([]),
-        SharedModule,
-        MatRippleModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatIconModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule,
+    FormsModule,
+    RepositoryContainerModule,
+    CoreModule,
+    AgGridModule.withComponents([]),
+    SharedModule,
+    MatRippleModule,
+    OverlayModule,
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -33,7 +33,6 @@ export class AuthService {
         console.log('Not authenticated')
       }
     })
-
   }
 
   signInWithEmail(infoUser: IAuthInfoUser) {
@@ -51,10 +50,15 @@ export class AuthService {
   }
 
   signUp(infoUser: IAuthInfoUser) {
-    return this.afAuth.createUserWithEmailAndPassword(infoUser.email, infoUser.password).then(() => {
-      this._sppinerService.setStateBehaviorSpinner(false)
+    return this.afAuth.createUserWithEmailAndPassword(infoUser.email, infoUser.password)
+      .then((resp) => {
+        this._sppinerService.setStateBehaviorSpinner(false)
 
-    })
+        throwError(resp)
+      }, er => {
+        this._sppinerService.setStateBehaviorSpinner(false)
+        throwError(er)
+      })
       .catch(err => throwError(err))
   }
 

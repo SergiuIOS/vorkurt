@@ -5,6 +5,7 @@ import {catchError, map} from "rxjs/operators";
 import {PopUpStateService} from "./pop-up-login/pop-up-state.service";
 import {throwError} from "rxjs";
 import {AuthService} from "../../shared/utils/services";
+import {OverlayPopUpService} from "../../shared/utils/services/overlay/overlay-pop-up.service";
 
 @Component({
   selector: 'elix-header',
@@ -40,11 +41,12 @@ export class HeaderComponent implements OnInit {
   @Input() name: string
   @Input() color = 'transparent'
   @Output()
-  onSayHello = new EventEmitter<HTMLElement>()
+  onSayHello = new EventEmitter<MouseEvent>()
   @Input() background: 'light' | 'dark' | 'transparent' = 'transparent'
   @ViewChild('pointIcon') pointIcon: ElementRef
 
   constructor(private _firebaseTry: ConnectionService, private _popUpState: PopUpStateService,
+              private _overlayPopUpService: OverlayPopUpService
               ) {
     this._firebaseTry.setUrl('/repository')
   }
@@ -65,12 +67,10 @@ export class HeaderComponent implements OnInit {
     this.inputValue = ' '
   }
 
-  retriveCoordinates(event: HTMLElement) {
+  retriveCoordinates(event: MouseEvent) {
     this.onSayHello.emit(event)
     this._popUpState.statePopLogin(true)
-    this._popUpState.coordinates({
-      offsetX: this.pointIcon.nativeElement.offsetLeft,
-      offsetY: this.pointIcon.nativeElement.offsetTopx
-    });
+
+    this._overlayPopUpService.open(event)
   }
 }
