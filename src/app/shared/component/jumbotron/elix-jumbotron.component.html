@@ -1,0 +1,27 @@
+<div *ngIf="type" class="border-2 elix__shared-border-color border-solid rounded-lg mr-2 ml-2">
+
+  <div class="pl-2 pr-2">
+    <div *ngIf="type === 'event'">
+      <div class="flex">
+        <div class="flex-1">
+          <h1>TItle</h1>
+        </div>
+        <div>
+          Action
+        </div>
+      </div>
+      <div>
+        <ng-content></ng-content>
+      </div>
+      <footer>
+        <div class="flex justify-between">
+          <div>language</div>
+          <div>
+            star
+          </div>
+          <div>Update date</div>
+        </div>
+      </footer>
+    </div>
+  </div>
+</div>

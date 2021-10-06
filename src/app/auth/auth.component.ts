@@ -19,10 +19,11 @@ export class AuthComponent implements OnInit {
   constructor(private _authService: AuthService,
               private router: Router,
               private _sppinerService: SpinnerStateService) {
-    this._sppinerService.setStateBehaviorSpinner(false)
   }
 
   ngOnInit(): void {
+    this._sppinerService.setStateBehaviorSpinner(false)
+
     if (localStorage.getItem('user') !== null) {
       this.isSignedIn = true
     } else {
@@ -52,7 +53,6 @@ export class AuthComponent implements OnInit {
             console.log(e)
           }
         } else {
-          this._sppinerService.setStateBehaviorSpinner(true)
           this._authService.signUp(form.value).catch(e => {
             return e
           })

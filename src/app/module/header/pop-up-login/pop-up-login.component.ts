@@ -12,6 +12,9 @@ import {SpinnerStateService} from "../../../shared/spinner/spinner-state.service
 export class PopUpLoginComponent implements OnInit {
   @ViewChild('popUp') popUp: ElementRef<HTMLElement>
   dataUser: any
+  timerId: number
+  start: number = 5000
+  remaning :number = 5000
 
   constructor(private _popState: PopUpStateService,
               private _render: Renderer2,
@@ -23,10 +26,26 @@ export class PopUpLoginComponent implements OnInit {
   ngOnInit(): void {
     this.dataUser = this._userService.getUserLoggedIn()
   }
+
   signOut() {
     this._popState.statePopLogin(false)
     this._spinnerService.setStateBehaviorSpinner(true)
     this._authService.logout()
+    this._spinnerService.setStateBehaviorSpinner(false)
     return 1
   }
+
+  pauseTimeout(){
+    clearTimeout(this.timerId)
+    this.remaning -= Date.now() - this.start
+    console.log(this.timerId)
+  }
+
+  resumeTimeOut(){
+    this.start = Date.now()
+    clearTimeout(this.timerId)
+    setTimeout(() => console.log('resume'), 3000)
+    console.log(this.start)
+  }
+
 }

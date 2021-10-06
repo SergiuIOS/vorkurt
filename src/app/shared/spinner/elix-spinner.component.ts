@@ -5,9 +5,9 @@ import {tap} from "rxjs/operators";
 @Component({
   selector: 'elix-spinner',
   template: '<div *ngIf="showSppiner" class="lds-hourglass flex justify-center items-center"></div>',
-  styleUrls: ['./spinner.component.scss']
+  styleUrls: ['./elix-spinner.component.scss']
 })
-export class SpinnerComponent implements OnInit {
+export class ElixSpinnerComponent implements OnInit {
   private _showSppiner: boolean
 
   constructor(private _spinnerStateService: SpinnerStateService) {

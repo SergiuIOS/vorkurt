@@ -10,10 +10,13 @@ const routes: Routes = [
     path: '', component: HeaderComponent,
     children: [
       {
-        path: "repo",
+        path: 'account',
+        loadChildren: () => import('./../account/account.module').then(m => m.AccountModule)
+      },{
+        path: ":id",
         canActivate: [AuthGuardGuard],
         loadChildren: () => import('../repository/repository.module').then(m => m.RepositoryModule),
-      }
+      },
     ]
   }
 ];

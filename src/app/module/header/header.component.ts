@@ -63,8 +63,9 @@ export class HeaderComponent implements OnInit {
         }))).subscribe(data => console.log(data))
   }
 
-  resizeData(event: Event) {
-    this.inputValue = ' '
+  resizeData(event: Event, dinamically: boolean) {
+
+    dinamically ? this.inputValue = ' ' : this.inputValue = ''
   }
 
   retriveCoordinates(event: MouseEvent) {

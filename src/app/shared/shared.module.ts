@@ -1,14 +1,15 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {ElixDragDirective} from './utils/directive/elix-drag.directive';
-import {SpinnerComponent} from "./spinner/spinner.component";
+import {ElixSpinnerComponent} from "./spinner/elix-spinner.component";
+import { ElixJumbotronComponent } from './component/jumbotron/elix-jumbotron.component';
 
 @NgModule({
-  declarations: [SpinnerComponent, ElixDragDirective],
+  declarations: [ElixSpinnerComponent, ElixDragDirective, ElixJumbotronComponent],
   imports: [
     CommonModule,
   ],
-  exports: [SpinnerComponent, ElixDragDirective]
+  exports: [ElixSpinnerComponent, ElixDragDirective, ElixJumbotronComponent]
 })
 export class SharedModule {
 }

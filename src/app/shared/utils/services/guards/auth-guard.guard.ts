@@ -9,8 +9,10 @@ import {SpinnerStateService} from "../../../spinner/spinner-state.service";
 })
 export class AuthGuardGuard implements CanActivate {
 
-  constructor(private _firebaseAuth: AngularFireAuth, private _sppinerService: SpinnerStateService
-    , private _userService: UserService, private _route: Router) {
+  constructor(private _firebaseAuth: AngularFireAuth,
+              private _sppinerService: SpinnerStateService,
+              private _userService: UserService,
+              private _route: Router) {
   }
 
   async canActivate(
@@ -22,16 +24,15 @@ export class AuthGuardGuard implements CanActivate {
 
     if (dataFromLocalStorage) {
       isAuthenticated = true
-      this._sppinerService.setStateBehaviorSpinner(false)
     }
 
     if (!isAuthenticated) {
       alert('You must be authenticated in order to access this page.')
 
       await this._route.navigate(['/auth/test'])
-      this._sppinerService.setStateBehaviorSpinner(false)
     }
+    this._sppinerService.setStateBehaviorSpinner(false)
+
     return isAuthenticated
   }
-
 }

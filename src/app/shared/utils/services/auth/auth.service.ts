@@ -40,7 +40,7 @@ export class AuthService {
       .then((result) => {
         this._userService.setUserLoggedIn(result)
         this.ngZone.run(() => {
-          this._router.navigate(['/table'])
+          this._router.navigate(['account'])
           this._sppinerService.setStateBehaviorSpinner(true)
         })
       }).catch(err => {

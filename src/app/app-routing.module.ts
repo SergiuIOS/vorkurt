@@ -1,6 +1,5 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {AgGridModule} from "ag-grid-angular";
 import {AuthComponent} from "./auth/auth.component";
 import {AuthGuardGuard} from "./shared/utils/services";
 
@@ -14,13 +13,12 @@ const routes: Routes = [
   {
     path: 'auth/test',
     component: AuthComponent
-  }
+  },
+
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes),
-    AgGridModule.withComponents([])
-  ],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule {
