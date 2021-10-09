@@ -8,6 +8,7 @@ import { RightSideArtifactsComponent } from './right-side-artifacts/right-side-a
 import {SharedModule} from "../../shared/shared.module";
 import {MatIconModule} from "@angular/material/icon";
 import {MatFormFieldModule} from "@angular/material/form-field";
+import {FormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import {MatFormFieldModule} from "@angular/material/form-field";
         AccountRouting,
         SharedModule,
         MatIconModule,
-        MatFormFieldModule
+        MatFormFieldModule,
+        FormsModule
     ]
 })
 export class AccountModule {
