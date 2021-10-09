@@ -17,11 +17,13 @@
     </div>
     <div>
       <div class="mt-2 h-8 -ml-2 pr-2">
-        <input type="text"
-               name="price"
-               id="price"
-               class="h-8 vorkurt__background-primary focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-7 pr-12 sm:text-sm border-gray-300 rounded-md"
-               placeholder="Find a repository">
+        <input
+          [ngModel]="dataFilter"
+          type="text"
+          name="price"
+          id="price"
+          class="h-8 vorkurt__background-primary focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-7 pr-12 sm:text-sm border-gray-300 rounded-md"
+          placeholder="Find a repository">
       </div>
     </div>
     <div *ngFor="let resp of repo">

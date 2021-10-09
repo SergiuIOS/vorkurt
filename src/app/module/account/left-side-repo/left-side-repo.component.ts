@@ -13,7 +13,7 @@ export class LeftSideRepoComponent implements OnInit, OnDestroy {
 
   private unsubscribe$ = new Subject()
   repo: IAccount[]
-
+  dataFilter: string
   constructor(private _accountService: AccountService) {
 
   }
@@ -29,6 +29,10 @@ export class LeftSideRepoComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.unsubscribe$.next()
     this.unsubscribe$.complete()
+  }
+
+  ate(event: string) {
+    this._accountService.filterDataFromQuery(event.toUpperCase())
   }
 
 
