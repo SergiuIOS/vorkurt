@@ -47,3 +47,5 @@ Thumbs.db
 .nvimlog
 .gitignore
 test.sh
+testNode.js
+

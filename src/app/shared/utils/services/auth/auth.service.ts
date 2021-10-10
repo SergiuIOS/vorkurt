@@ -4,8 +4,10 @@ import {UserService} from "../user/user-service";
 import {Router} from "@angular/router";
 import {User} from "../../interfaces/user/user";
 import {IAuthInfoUser} from "../../interfaces/auth/auth-info-user.types";
-import {throwError} from "rxjs";
 import {SpinnerStateService} from "../../../spinner/spinner-state.service";
+import firebase from "firebase/compat";
+import {throwError} from "rxjs";
+import FirebaseError = firebase.FirebaseError;
 
 @Injectable({
   providedIn: 'root'
@@ -46,21 +48,25 @@ export class AuthService {
       }).catch(err => {
         this._router.navigate(['/auth/test'])
         this._sppinerService.setStateBehaviorSpinner(false)
-        return err
+        return throwError(err)
       })
   }
 
   signUp(infoUser: IAuthInfoUser) {
     return this.afAuth.createUserWithEmailAndPassword(infoUser.email, infoUser.password)
       .then((resp) => {
-        this._sppinerService.setStateBehaviorSpinner(false)
-
-        throwError(resp)
-      }, er => {
-        this._sppinerService.setStateBehaviorSpinner(false)
-        throwError(er)
-      })
-      .catch(err => throwError(err))
+          this._sppinerService.setStateBehaviorSpinner(false)
+        },
+        (er) => {
+          alert(er)
+          throwError(er)
+        }
+      ).catch((error) => {
+          this._sppinerService.setStateBehaviorSpinner(false)
+          console.info(error.code)
+          return 2
+        }
+      )
   }
 
   logout() {
@@ -75,6 +81,16 @@ export class AuthService {
       this.getDataFromFirebase()
     } else {
       console.log('localStorage ready')
+    }
+  }
+
+  private handleError(error: FirebaseError) {
+    // Handle the HTTP error here
+    console.log('handle Error')
+    {
+      if (error.name === 'FirebaseError') {
+        console.log(error)
+      }
     }
   }
 }

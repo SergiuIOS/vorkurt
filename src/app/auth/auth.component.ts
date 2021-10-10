@@ -35,25 +35,17 @@ export class AuthComponent implements OnInit {
     this.feedback.password = false
     this.feedback.email = false
     try {
+
+
       if (this._regexEmail.test(String(
         form.value.email).toLowerCase()) && String(form.value.password).length >= 6) {
         this._sppinerService.setStateBehaviorSpinner(true)
         if (this.logedIn) {
-          try {
-            this._authService.signInWithEmail(form.value).then((resp: any) => {
-              },
-              async (err: any) => {
-                try {
-
-                } catch (e) {
-                  throw e
-                }
-              })
-          } catch (e) {
-            console.log(e)
-          }
+          this._authService.signInWithEmail(form.value).then((resp: any) => {
+          })
         } else {
           this._authService.signUp(form.value).catch(e => {
+            console.log(e)
             return e
           })
         }
@@ -61,10 +53,9 @@ export class AuthComponent implements OnInit {
       } else {
         this.feedback.email = true
         this.feedback.password = true
-
       }
     } catch (e) {
-      throwError(e)
+      console.log(e)
     }
   }
 
