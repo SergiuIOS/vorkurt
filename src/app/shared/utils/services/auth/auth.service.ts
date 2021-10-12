@@ -56,14 +56,11 @@ export class AuthService {
     return this.afAuth.createUserWithEmailAndPassword(infoUser.email, infoUser.password)
       .then((resp) => {
           this._sppinerService.setStateBehaviorSpinner(false)
-        },
-        (er) => {
-          alert(er)
-          throwError(er)
         }
       ).catch((error) => {
+        console.error("error2")
           this._sppinerService.setStateBehaviorSpinner(false)
-          console.info(error.code)
+          // console.info(error.code)
           return 2
         }
       )

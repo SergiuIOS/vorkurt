@@ -4,6 +4,7 @@ import {AuthComponent} from "./auth/auth.component";
 import {AuthGuardGuard} from "./shared/utils/services";
 
 const routes: Routes = [
+  {path: '**', redirectTo: '/account'},
   {path: '', redirectTo: '/auth/test', pathMatch: 'full'},
   {
     path: '',

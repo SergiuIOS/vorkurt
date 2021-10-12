@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnInit, Renderer2, ViewChild} from '@angular/core';
+import {Component, ComponentRef, ElementRef, Input, OnInit, Renderer2, ViewChild} from '@angular/core';
 import {PopUpStateService} from "./pop-up-state.service";
 import {AuthService} from "../../../shared/utils/services";
 import {UserService} from "../../../shared/utils/services/user/user-service";
@@ -13,8 +13,10 @@ export class PopUpLoginComponent implements OnInit {
   @ViewChild('popUp') popUp: ElementRef<HTMLElement>
   dataUser: any
   timerId: number
-  start: number = 5000
-  remaning :number = 5000
+  start: number
+  timer: number
+
+  @Input() componentRef: ComponentRef<PopUpLoginComponent>
 
   constructor(private _popState: PopUpStateService,
               private _render: Renderer2,
@@ -23,8 +25,11 @@ export class PopUpLoginComponent implements OnInit {
               private _spinnerService: SpinnerStateService,
   ) {
   }
+
   ngOnInit(): void {
+    this.start = 100
     this.dataUser = this._userService.getUserLoggedIn()
+    this.resumeTimeOut()
   }
 
   signOut() {
@@ -35,17 +40,25 @@ export class PopUpLoginComponent implements OnInit {
     return 1
   }
 
-  pauseTimeout(){
-    clearTimeout(this.timerId)
-    this.remaning -= Date.now() - this.start
-    console.log(this.timerId)
+  stopTimer() {
+    window.setTimeout(() => {
+      this.componentRef.destroy()
+    })
   }
 
-  resumeTimeOut(){
-    this.start = Date.now()
-    clearTimeout(this.timerId)
-    setTimeout(() => console.log('resume'), 3000)
-    console.log(this.start)
+  pauseTimeout() {
+    window.clearInterval(this.timer)
+  }
+
+  resumeTimeOut() {
+    this.timer = window.setInterval(() => {
+      if(this.start > 0) {
+        this.start -= 10
+      }else {
+        this.pauseTimeout()
+      }
+      console.log(this.start)
+    }, 500)
   }
 
 }
