@@ -2,46 +2,64 @@
   height: inherit
 }
 
-.vorkurt__background-primary{
+.vorkurt__background-primary {
   background: #1c2128;
 }
 
-.vorkurt__background-secondary{
+.vorkurt__background-secondary {
   background: #22272e;
 }
 
-.vorkurt__background-thrid{
+.vorkurt__background-thrid {
   background: #2d333b;
 }
 
-.vorkurt__height-account{
+.vorkurt__height-account {
   height: 93.333333%;
 }
 
-.vorkurt__green-primary{
+.vorkurt__green-primary {
   color: #347d39;
 }
 
-.vorkurt__background-button{
+.vorkurt__background-button {
   background: #347d39;
 }
 
-.vorkurt__size-icon{
+.vorkurt__size-icon {
   height: 1.063rem !important;
   width: 1.063rem !important;
 }
 
-.vorkurt__color-text-line{
+.vorkurt__color-text-line {
   color: #444c56;
 }
 
-.vorkurt__color-text{
+.vorkurt__color-text {
   color: #adbac7;
 }
 
-.vorkurt__text-size-secondary{
+.vorkurt__text-size-secondary {
   font-size: 1.0rem;
   line-height: 1.0rem;
+}
+
+.vorkurt__border-bottom {
+  border-bottom: 0.1px solid #373e47;
+}
+
+.vorkurt__color-background {
+  background: #373e47;
+}
+
+.vorkurt__border-color {
+  border: 1px solid #464e57 !important;
+}
+
+.vorkurt__border-input {
+  border-color: #316dca;
+  outline: none;
+  box-shadow: #316dca
 }
 
 h1 h2 h3 h4 h5 p {

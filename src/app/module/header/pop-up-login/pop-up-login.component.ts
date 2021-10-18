@@ -3,6 +3,7 @@ import {PopUpStateService} from "./pop-up-state.service";
 import {AuthService} from "../../../shared/utils/services";
 import {UserService} from "../../../shared/utils/services/user/user-service";
 import {SpinnerStateService} from "../../../shared/spinner/spinner-state.service";
+import {OverlayPopUpService} from "../../../shared/utils/services/overlay/overlay-pop-up.service";
 
 @Component({
   selector: 'elix-pop-up-login',
@@ -13,8 +14,8 @@ export class PopUpLoginComponent implements OnInit {
   @ViewChild('popUp') popUp: ElementRef<HTMLElement>
   dataUser: any
   timerId: number
-  start: number
-  timer: number
+  start: number = 0
+  timer: number = 0
 
   @Input() componentRef: ComponentRef<PopUpLoginComponent>
 
@@ -23,11 +24,11 @@ export class PopUpLoginComponent implements OnInit {
               private _authService: AuthService,
               private _userService: UserService,
               private _spinnerService: SpinnerStateService,
+              private _overlayConfig: OverlayPopUpService
   ) {
   }
 
   ngOnInit(): void {
-    this.start = 100
     this.dataUser = this._userService.getUserLoggedIn()
     this.resumeTimeOut()
   }
@@ -37,7 +38,7 @@ export class PopUpLoginComponent implements OnInit {
     this._spinnerService.setStateBehaviorSpinner(true)
     this._authService.logout()
     this._spinnerService.setStateBehaviorSpinner(false)
-    return 1
+    this._overlayConfig.closeOverlay()
   }
 
   stopTimer() {
@@ -52,12 +53,13 @@ export class PopUpLoginComponent implements OnInit {
 
   resumeTimeOut() {
     this.timer = window.setInterval(() => {
-      if(this.start > 0) {
-        this.start -= 10
-      }else {
+      if (this.start < 100) {
+        this.start += 10
+      } else {
         this.pauseTimeout()
+        this._overlayConfig.closeOverlay()
+        return
       }
-      console.log(this.start)
     }, 500)
   }
 

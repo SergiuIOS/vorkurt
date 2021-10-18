@@ -1,6 +1,6 @@
 <div class="bg-blue-700 " [ngClass]="' vorkurt__background-thrid iufce__parrent-header background-' + background">
   <div elixElixDrag class="flex pl-8 justify-center items-center h-16">
-    <div class="w-8 h-8 mr-4" [routerLink]="'account'">
+    <div class="w-8 h-8 mr-4 cursor-pointer" [routerLink]="'account'">
       <mat-icon [svgIcon]="'fa_brands:github'" class="iufce__icon " [ngClass]="'colorIcon-'+color"></mat-icon>
     </div>
     <div class="flex flex-1 items-center">
@@ -16,16 +16,16 @@
     </div>
     <div class= "flex pr-8">
       <div class="w-5 h-5">
-        <mat-icon [svgIcon]="'fa_solid:bell'" class="iufce__icon" [ngClass]="'colorIcon-'+color"></mat-icon>
+        <mat-icon [svgIcon]="'fa_solid:bell'" class="iufce__icon cursor-pointer" [ngClass]="'colorIcon-'+color"></mat-icon>
       </div>
       <div class="w-5 h-5 ml-2">
-        <mat-icon [svgIcon]="'fa_solid:plus'" class="iufce__icon" [ngClass]="'colorIcon-'+color"></mat-icon>
+        <mat-icon [svgIcon]="'fa_solid:plus'" class="iufce__icon cursor-pointer" [ngClass]="'colorIcon-'+color"></mat-icon>
       </div>
       <div class="w-5 h-5 ml-2" #pointIcon>
         <mat-icon
                   (click)="retriveCoordinates($event)"
                   [svgIcon]="'fa_solid:user-circle'"
-                  class="iufce__icon"
+                  class="iufce__icon cursor-pointer"
                   [ngClass]="'colorIcon-'+color"></mat-icon>
       </div>
     </div>

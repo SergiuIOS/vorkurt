@@ -10,23 +10,25 @@ import {DragDropModule} from "@angular/cdk/drag-drop";
 import {SharedModule} from "../../shared/shared.module";
 import {MatButtonModule} from "@angular/material/button";
 import {MatTooltipModule} from "@angular/material/tooltip";
+import {MatProgressBarModule} from "@angular/material/progress-bar";
 
 @NgModule({
   declarations: [
     HeaderComponent,
     PopUpLoginComponent
   ],
-  imports: [
-    OverlayModule,
-    MatIconModule,
-    FormsModule,
-    CommonModule,
-    AppHeaderRouting,
-    DragDropModule,
-    SharedModule,
-    MatButtonModule,
-    MatTooltipModule,
-  ],
+    imports: [
+        OverlayModule,
+        MatIconModule,
+        FormsModule,
+        CommonModule,
+        AppHeaderRouting,
+        DragDropModule,
+        SharedModule,
+        MatButtonModule,
+        MatTooltipModule,
+        MatProgressBarModule,
+    ],
   entryComponents: [
     PopUpLoginComponent
   ]

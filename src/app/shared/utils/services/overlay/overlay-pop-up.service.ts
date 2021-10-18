@@ -21,20 +21,26 @@ const DEFAULT_CONFIG: IDialoConfig = {
 })
 export class OverlayPopUpService {
 
+  dialogRef: any
+  overlayRef: any
+  filePortal: any
+
   constructor(private _overlay: Overlay) {
   }
 
   open(event: MouseEvent, config: IDialoConfig = {}) {
     const dialogConfig = {...DEFAULT_CONFIG, ...config}
-    const overlayRef = this.createOverlay(dialogConfig, event)
-    const dialogRef = new OverlayPopUpRef(overlayRef)
-    const filePortal = new ComponentPortal(PopUpLoginComponent)
-    overlayRef.attach(filePortal)
+    this.overlayRef = this.createOverlay(dialogConfig, event)
+    this.dialogRef = new OverlayPopUpRef(this.overlayRef)
+    this.filePortal = new ComponentPortal(PopUpLoginComponent)
+    this.overlayRef.attach(this.filePortal)
 
-    overlayRef.backdropClick().subscribe(_ => dialogRef.close())
-    overlayRef.keydownEvents().subscribe(r=> console.log(r))
+    this.overlayRef.backdropClick().subscribe((_: any) => this.dialogRef.close())
+    return this.overlayRef
+  }
 
-    return dialogRef
+  closeOverlay() {
+    this.dialogRef.close()
   }
 
   private createOverlay(config: IDialoConfig, event: MouseEvent) {
@@ -53,9 +59,6 @@ export class OverlayPopUpService {
       scrollStrategy: this._overlay.scrollStrategies.block(),
       positionStrategy
     })
-
-
-
     return overlayConfig
   }
 }

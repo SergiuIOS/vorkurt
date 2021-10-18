@@ -1,4 +1,4 @@
-<div *ngIf="type" class="border-2 elix__shared-border-color border-solid rounded-lg mr-2 ml-2">
+<div *ngIf="type" class="vorkurt__color-background border-2 elix__shared-border-color border-solid rounded-lg mr-2 ml-2">
 
   <div class="pl-2 pr-2">
     <div *ngIf="type === 'event'">
@@ -14,12 +14,12 @@
         <ng-content></ng-content>
       </div>
       <footer>
-        <div class="flex justify-between">
-          <div>language</div>
-          <div>
-            star
+        <div class="w-72" >
+          <div class="flex justify-between">
+            <div>language</div>
+            <div> star</div>
+            <div>Update date</div>
           </div>
-          <div>Update date</div>
         </div>
       </footer>
     </div>

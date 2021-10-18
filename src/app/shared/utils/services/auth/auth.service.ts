@@ -69,7 +69,7 @@ export class AuthService {
   logout() {
     this._userService.clearLocalStorage()
     this.afAuth.signOut().then(() => {
-      this._router.navigate(['/'])
+      this._router.navigate(['/', 'auth/test'])
     })
   }
 

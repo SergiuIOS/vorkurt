@@ -6,12 +6,13 @@
  border-solid
 "
      (mouseenter)="pauseTimeout()"
-     (mouseleave)="resumeTimeOut()"
->
-  <div
-  >
+     (mouseleave)="resumeTimeOut()">
+  <div>
     <div>
       <p class="truncate">{{dataUser.email || dataUser.user.email}} </p>
+    </div>
+    <div>
+      <mat-progress-bar mode="determinate" [value]=start></mat-progress-bar>
     </div>
     <div class="flex justify-center">
       <button mat-flat-button (click)="signOut()">Sign Out</button>
