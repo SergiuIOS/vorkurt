@@ -15,12 +15,18 @@ import {AngularFireDatabaseModule} from "@angular/fire/compat/database";
 import {AuthComponent} from './auth/auth.component';
 import {MatRippleModule} from "@angular/material/core";
 import {OverlayModule} from "@angular/cdk/overlay";
+import { PageNotFoundComponent } from './auth/page-not-found/page-not-found.component';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCardModule } from '@angular/material/card';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatButtonModule } from '@angular/material/button';
+import { LayoutModule } from '@angular/cdk/layout';
 
 @NgModule({
   declarations: [
     AppComponent,
     AuthComponent,
-
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,6 +41,11 @@ import {OverlayModule} from "@angular/cdk/overlay";
     SharedModule,
     MatRippleModule,
     OverlayModule,
+    MatGridListModule,
+    MatCardModule,
+    MatMenuModule,
+    MatButtonModule,
+    LayoutModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

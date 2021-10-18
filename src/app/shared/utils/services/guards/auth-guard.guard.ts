@@ -27,7 +27,7 @@ export class AuthGuardGuard implements CanActivate {
     }
 
     if (!isAuthenticated) {
-      alert('You must be authenticated in order to access this page.')
+      console.warn('You must be authenticated in order to access this page.')
 
       await this._route.navigate(['/auth/test'])
     }

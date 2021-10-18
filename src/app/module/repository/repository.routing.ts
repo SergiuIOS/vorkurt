@@ -8,6 +8,8 @@ import {SettingsComponent} from "./settings/settings.component";
 
 
 const routes: Routes = [
+  {path: '', redirectTo: ''}
+  ,
   {
     path: '', component: RepositoryTabProjectComponent,
     data: {data: routerArray},

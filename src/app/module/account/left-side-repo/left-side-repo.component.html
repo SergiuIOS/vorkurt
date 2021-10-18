@@ -28,7 +28,7 @@
           placeholder="Find a repository">
       </div>
     </div>
-    <div *ngFor="let resp of repo">
+    <div *ngFor="let resp of repo" class="cursor-pointer">
       <div class="flex mt-2 mb-2 hover:underline" [routerLink]="resp.link">
         <mat-icon
           [svgIcon]="'fa_solid:user-circle'"></mat-icon>

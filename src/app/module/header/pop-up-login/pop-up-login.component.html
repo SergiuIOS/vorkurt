@@ -5,13 +5,14 @@
  w-44 elix__border-color
  border-solid
 "
-     (mouseleave)="resumeTimeOut()"
      (mouseenter)="pauseTimeout()"
->
-  <div
-  >
+     (mouseleave)="resumeTimeOut()">
+  <div>
     <div>
-      <h1 class="truncate">{{dataUser.email || dataUser.user.email}} </h1>
+      <p class="truncate">{{dataUser.email || dataUser.user.email}} </p>
+    </div>
+    <div>
+      <mat-progress-bar mode="determinate" [value]=start></mat-progress-bar>
     </div>
     <div class="flex justify-center">
       <button mat-flat-button (click)="signOut()">Sign Out</button>

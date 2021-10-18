@@ -56,14 +56,11 @@ export class AuthService {
     return this.afAuth.createUserWithEmailAndPassword(infoUser.email, infoUser.password)
       .then((resp) => {
           this._sppinerService.setStateBehaviorSpinner(false)
-        },
-        (er) => {
-          alert(er)
-          throwError(er)
         }
       ).catch((error) => {
+        console.error("error2")
           this._sppinerService.setStateBehaviorSpinner(false)
-          console.info(error.code)
+          // console.info(error.code)
           return 2
         }
       )
@@ -72,7 +69,7 @@ export class AuthService {
   logout() {
     this._userService.clearLocalStorage()
     this.afAuth.signOut().then(() => {
-      this._router.navigate(['/'])
+      this._router.navigate(['/', 'auth/test'])
     })
   }
 

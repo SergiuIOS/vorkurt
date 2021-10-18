@@ -1,8 +1,9 @@
-import {Component, ElementRef, OnInit, Renderer2, ViewChild} from '@angular/core';
+import {Component, ComponentRef, ElementRef, Input, OnInit, Renderer2, ViewChild} from '@angular/core';
 import {PopUpStateService} from "./pop-up-state.service";
 import {AuthService} from "../../../shared/utils/services";
 import {UserService} from "../../../shared/utils/services/user/user-service";
 import {SpinnerStateService} from "../../../shared/spinner/spinner-state.service";
+import {OverlayPopUpService} from "../../../shared/utils/services/overlay/overlay-pop-up.service";
 
 @Component({
   selector: 'elix-pop-up-login',
@@ -13,18 +14,23 @@ export class PopUpLoginComponent implements OnInit {
   @ViewChild('popUp') popUp: ElementRef<HTMLElement>
   dataUser: any
   timerId: number
-  start: number = 5000
-  remaning :number = 5000
+  start: number = 0
+  timer: number = 0
+
+  @Input() componentRef: ComponentRef<PopUpLoginComponent>
 
   constructor(private _popState: PopUpStateService,
               private _render: Renderer2,
               private _authService: AuthService,
               private _userService: UserService,
               private _spinnerService: SpinnerStateService,
+              private _overlayConfig: OverlayPopUpService
   ) {
   }
+
   ngOnInit(): void {
     this.dataUser = this._userService.getUserLoggedIn()
+    this.resumeTimeOut()
   }
 
   signOut() {
@@ -32,20 +38,29 @@ export class PopUpLoginComponent implements OnInit {
     this._spinnerService.setStateBehaviorSpinner(true)
     this._authService.logout()
     this._spinnerService.setStateBehaviorSpinner(false)
-    return 1
+    this._overlayConfig.closeOverlay()
   }
 
-  pauseTimeout(){
-    clearTimeout(this.timerId)
-    this.remaning -= Date.now() - this.start
-    console.log(this.timerId)
+  stopTimer() {
+    window.setTimeout(() => {
+      this.componentRef.destroy()
+    })
   }
 
-  resumeTimeOut(){
-    this.start = Date.now()
-    clearTimeout(this.timerId)
-    setTimeout(() => console.log('resume'), 3000)
-    console.log(this.start)
+  pauseTimeout() {
+    window.clearInterval(this.timer)
+  }
+
+  resumeTimeOut() {
+    this.timer = window.setInterval(() => {
+      if (this.start < 100) {
+        this.start += 10
+      } else {
+        this.pauseTimeout()
+        this._overlayConfig.closeOverlay()
+        return
+      }
+    }, 500)
   }
 
 }
