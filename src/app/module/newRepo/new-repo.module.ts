@@ -12,6 +12,7 @@ import {MatCheckboxModule} from "@angular/material/checkbox";
 import {BottomComponent} from './bottom/bottom.component';
 import {SharedModule} from "../../shared/shared.module";
 import {DragDropModule} from "@angular/cdk/drag-drop";
+import { TemplateRepositoryComponent } from './tooltip/template-repository/template-repository.component';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import {DragDropModule} from "@angular/cdk/drag-drop";
     HeaderNewRepoComponent,
     MiddleComponent,
     BottomComponent,
+    TemplateRepositoryComponent,
   ],
   imports: [
     CommonModule,

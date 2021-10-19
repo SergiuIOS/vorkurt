@@ -1,5 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {OverlayService} from "../../../shared/utils/services/overlay/overlay.service";
+import {TemplateRepositoryComponent} from "../tooltip/template-repository/template-repository.component";
 
 @Component({
   selector: 'elix-header-new-repo',
@@ -17,8 +18,8 @@ export class HeaderNewRepoComponent implements OnInit {
   }
 
   openService(event: any) {
-    const target = document.querySelector('button') as HTMLElement
-    // this._overlayAll.display(target, TestComponent)
+    const target =this.button as HTMLElement
+    this._overlayAll.display(target, TemplateRepositoryComponent)
 
   }
 
