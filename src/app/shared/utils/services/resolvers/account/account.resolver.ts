@@ -15,6 +15,7 @@ import {map} from "rxjs/operators";
 export class AccountResolver implements Resolve<boolean> {
 
   constructor(private _firebase : ConnectionService, private _accountService: AccountService) {
+    this._firebase.setUrl('/repository')
   }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): any {
