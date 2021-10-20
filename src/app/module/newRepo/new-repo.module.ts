@@ -12,7 +12,9 @@ import {MatCheckboxModule} from "@angular/material/checkbox";
 import {BottomComponent} from './bottom/bottom.component';
 import {SharedModule} from "../../shared/shared.module";
 import {DragDropModule} from "@angular/cdk/drag-drop";
-import { TemplateRepositoryComponent } from './tooltip/template-repository/template-repository.component';
+import {TemplateRepositoryComponent} from './tooltip/template-repository/template-repository.component';
+import {MatButtonToggleModule} from "@angular/material/button-toggle";
+import {MatMenuModule} from "@angular/material/menu";
 
 
 @NgModule({
@@ -32,7 +34,9 @@ import { TemplateRepositoryComponent } from './tooltip/template-repository/templ
     MatFormFieldModule,
     MatCheckboxModule,
     SharedModule,
-    DragDropModule
+    DragDropModule,
+    MatButtonToggleModule,
+    MatMenuModule
   ]
 })
 export class NewRepoModule {

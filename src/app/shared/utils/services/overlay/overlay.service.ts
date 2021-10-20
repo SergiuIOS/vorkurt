@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Overlay} from "@angular/cdk/overlay";
 import {ComponentPortal} from "@angular/cdk/portal";
 
@@ -6,12 +6,15 @@ import {ComponentPortal} from "@angular/cdk/portal";
   providedIn: 'root'
 })
 export class OverlayService {
+  private overlayRef: any;
+  private component: ComponentPortal<any>
 
-  constructor(private _ovelay: Overlay) { }
+  constructor(private _ovelay: Overlay) {
+  }
 
-  display(element: any, exampleOverlayComponent: any){
+  display(element: any, exampleOverlayComponent: any) {
     const target = element
-    const overlayRef = this._ovelay.create({
+    this.overlayRef = this._ovelay.create({
       hasBackdrop: true,
       backdropClass: 'cdk-overlay-transparent-backdrop',
       panelClass: 'vorkurt-overlay',
@@ -44,12 +47,15 @@ export class OverlayService {
           },
         ]),
     })
-    const component = new ComponentPortal(exampleOverlayComponent);
-    const componentRef = overlayRef.attach(component);
-    overlayRef.backdropClick().subscribe(() => {
-      overlayRef.detach()
-      overlayRef.dispose()
+    this.component = new ComponentPortal(exampleOverlayComponent);
+    this.overlayRef.attach(this.component);
+    this.overlayRef.backdropClick().subscribe(() => {
+      this.overlayRef.detach()
+      this.overlayRef.dispose()
     });
   }
 
+  closeOverlay() {
+    this.overlayRef.detach()
+  }
 }

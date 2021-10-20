@@ -18,7 +18,7 @@ export class HeaderNewRepoComponent implements OnInit {
   }
 
   openService(event: any) {
-    const target =this.button as HTMLElement
+    const target = this.button as HTMLElement
     this._overlayAll.display(target, TemplateRepositoryComponent)
 
   }

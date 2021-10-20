@@ -1,6 +1,6 @@
-<div *ngIf="type"
-     class="vorkurt__color-background border-2 elix__shared-border-color border-solid rounded-lg mr-2 ml-2">
-  <div *ngIf="type === 'event'">
+<div
+  class="vorkurt__color-background border-2 elix__shared-border-color border-solid rounded-lg mr-2 ml-2">
+  <div class="pl-2 pr-2" *ngIf="type === 'post'">
     <div class="flex">
       <div class="flex-1">
         <h1>TItle</h1>
@@ -10,8 +10,11 @@
       </div>
     </div>
     <div>
-      <ng-content></ng-content>
+      <ng-content select="[post]"></ng-content>
     </div>
+    <div>
+    </div>
+
     <footer>
       <div class="w-72">
         <div class="flex justify-between">
@@ -23,11 +26,9 @@
     </footer>
   </div>
 
-  <div class="pl-2 pr-2" *ngIf="type === 'test'">
-      <div>
+  <div class="w-96 pl-2 pr-2" *ngIf="type === 'template'">
+    <div>
       <ng-content></ng-content>
     </div>
   </div>
-  <ng-content></ng-content>
 </div>
-<ng-content></ng-content>
