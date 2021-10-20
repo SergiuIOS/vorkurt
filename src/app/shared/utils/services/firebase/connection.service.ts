@@ -18,6 +18,7 @@ export class ConnectionService {
   }
 
   setUrl(url: string) {
+    this.repositoryRef = this.db.collection(url)
     this._dbPath = url
   }
 

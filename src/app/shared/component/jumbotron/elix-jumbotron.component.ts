@@ -12,7 +12,6 @@ export class ElixJumbotronComponent implements OnInit {
   @Input() action: boolean
   //It's mandatory
   @Input() type: string
-
   constructor() {
   }
 
