@@ -1,21 +1,22 @@
 import {Injectable} from '@angular/core';
 import {User} from "../../interfaces/user/user";
+import {LocalStorageDataService} from "../abstract/local-storage-data.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  constructor() {
+  constructor(private _localStorage: LocalStorageDataService) {
   }
 
   setUserLoggedIn(user: User | any) {
-    localStorage.setItem('user', JSON.stringify(user))
+    this._localStorage.setResource('user', JSON.stringify(user))
   }
 
   getUserLoggedIn() {
     if (localStorage.getItem('user')) {
-      return JSON.parse(<string>localStorage.getItem('user'))
+      return JSON.parse(<string>this._localStorage.getResource('user'))
     } else {
       console.log('local storage is empty')
       return null
@@ -23,6 +24,6 @@ export class UserService {
   }
 
   clearLocalStorage() {
-    localStorage.clear()
+    this._localStorage.clearAllValue()
   }
 }
