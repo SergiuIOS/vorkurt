@@ -14,6 +14,5 @@ export class UserNameRepositoryComponent implements OnInit {
   }
 
   onClick(dataTemplate: any) {
-    
   }
 }
