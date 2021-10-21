@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {OverlayService} from "../../../shared/utils/services/overlay/overlay.service";
-import {AuthComponent} from "../../../auth/auth.component";
+import {UserNameRepositoryComponent} from "../tooltip/user-name-repository/user-name-repository.component";
 
 @Component({
   selector: 'elix-middle',
@@ -8,7 +8,7 @@ import {AuthComponent} from "../../../auth/auth.component";
   styleUrls: ['./middle.component.scss']
 })
 export class MiddleComponent implements OnInit {
-  @ViewChild('middle') middle: any
+  @ViewChild('userName') middle: any
 
   constructor(private _overlayAll: OverlayService) {
   }
@@ -17,8 +17,8 @@ export class MiddleComponent implements OnInit {
   }
 
   openServices(event: any) {
-    const target = document.getElementById('div') as HTMLElement
-    this._overlayAll.display(this.middle, AuthComponent)
+    const target = this.middle as HTMLElement
+    this._overlayAll.display(target, UserNameRepositoryComponent)
 
   }
 }

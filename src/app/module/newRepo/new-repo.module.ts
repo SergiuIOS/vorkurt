@@ -15,6 +15,7 @@ import {DragDropModule} from "@angular/cdk/drag-drop";
 import {TemplateRepositoryComponent} from './tooltip/template-repository/template-repository.component';
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import {MatMenuModule} from "@angular/material/menu";
+import { UserNameRepositoryComponent } from './tooltip/user-name-repository/user-name-repository.component';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import {MatMenuModule} from "@angular/material/menu";
     MiddleComponent,
     BottomComponent,
     TemplateRepositoryComponent,
+    UserNameRepositoryComponent,
   ],
   imports: [
     CommonModule,
