@@ -14,6 +14,9 @@ import {SharedModule} from "../../shared/shared.module";
 import {DragDropModule} from "@angular/cdk/drag-drop";
 import {TemplateRepositoryComponent} from './tooltip/template-repository/template-repository.component';
 import { UserNameRepositoryComponent } from './tooltip/user-name-repository/user-name-repository.component';
+import {MatButtonToggleModule} from "@angular/material/button-toggle";
+import {MatMenuModule} from "@angular/material/menu";
+import {FormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -36,7 +39,8 @@ import { UserNameRepositoryComponent } from './tooltip/user-name-repository/user
     SharedModule,
     DragDropModule,
     MatButtonToggleModule,
-    MatMenuModule
+    MatMenuModule,
+    FormsModule
   ]
 })
 export class NewRepoModule {

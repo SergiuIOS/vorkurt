@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {AngularFirestore, AngularFirestoreCollection} from "@angular/fire/compat/firestore";
-import {INewRepository} from "../../interfaces";
+import {INewRepository, IWrapperRepository} from "../../interfaces";
 import {map} from "rxjs/operators";
 
 @Injectable({
@@ -26,6 +26,12 @@ export class ConnectionService {
 
   updateData(data: INewRepository){
     this._dbPath = '/templateff'
+
+    return this.db.collection(this._dbPath).add(data).then(resp => resp)
+  }
+
+  createRepository(data: IWrapperRepository){
+    this._dbPath = '/repositoryNew'
 
     return this.db.collection(this._dbPath).add(data).then(resp => resp)
   }

@@ -8,7 +8,7 @@ export class LocalStorageDataService {
   constructor() {
   }
 
-  getResource(key: string) {
+  getResource(key: string) : string | null{
     return localStorage.getItem(key)
   }
 

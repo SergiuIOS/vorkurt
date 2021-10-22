@@ -5,6 +5,8 @@ import {AuthGuardGuard} from "../../shared/utils/services";
 
 
 const routes: Routes = [
+  {path: '', redirectTo: 'account', pathMatch: 'full'},
+
   {
     path: '', component: HeaderComponent,
     children: [
@@ -22,7 +24,8 @@ const routes: Routes = [
         loadChildren: () => import('../repository/repository.module').then(m => m.RepositoryModule),
       },
     ]
-  }
+  },
+
 ];
 
 @NgModule({

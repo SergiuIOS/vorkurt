@@ -49,16 +49,6 @@
       </mat-checkbox>
     </div>
   </div>
-  <div class="mb-3">
-    <div>
-      <button mat-raised-button
-              class="flex w-36 vorkurt__color-background vorkurt__color-text text-base font-normal vorkurt__border-color"
-              style="padding-left: 2px;">
-        User Name
-        <mat-icon class="flex fixed" [svgIcon]="'fa_solid:sort-down'"></mat-icon>
-      </button>
-    </div>
-  </div>
   <div>
     <div>
       <span>
@@ -70,7 +60,7 @@
 <div
   class="mb-6 flex h-7 items-center justify-center vorkurt__background-button w-1/4 rounded-lg ml-2 mr-2 cursor-pointer">
   <button class="flex justify-center vorkurt__background-button">
-    <div class="ml-2">
+    <div class="ml-2" (click)="onSubmit()">
       <span class="font-normal text-base">Create Repository</span>
     </div>
   </button>
