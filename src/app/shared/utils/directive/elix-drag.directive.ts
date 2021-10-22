@@ -6,7 +6,8 @@
 export class ElixDragDirective implements OnInit{
   @Input() defaultColor : string = 'transparent'
 
-  constructor(private _elementRef: ElementRef, private _renderer: Renderer2) {const self = this;
+  constructor(private _elementRef: ElementRef, private _renderer: Renderer2) {
+    const self = this;
 
     function preventSeePointerWhenResize() {
       document.body.style.pointerEvents = 'none';
@@ -17,13 +18,13 @@ export class ElixDragDirective implements OnInit{
     }
 
 
-    const newWidth = (wid: any) => {
+    const newWidth = (wid: number) => {
       const newWidth = Math.max(this.resizableMinWidth, wid);
       _elementRef.nativeElement.style.width = (newWidth) + "px";
     }
 
 
-    const mouseMoveG = (evt: any) => {
+    const mouseMoveG = (evt: MouseEvent) => {
       if (!this.dragging) {
         return;
       }
@@ -32,7 +33,7 @@ export class ElixDragDirective implements OnInit{
     };
 
 
-    const mouseUpG = (evt: any) => {
+    const mouseUpG = (evt: MouseEvent) => {
       if (!this.dragging) {
         return;
       }
@@ -41,7 +42,7 @@ export class ElixDragDirective implements OnInit{
       evt.stopPropagation();
     };
 
-    const mouseDown = (evt: any) => {
+    const mouseDown = (evt: MouseEvent) => {
       if (this.inDragRegion(evt)) {
         this.dragging = true;
         preventSeePointerWhenResize();
@@ -72,15 +73,7 @@ export class ElixDragDirective implements OnInit{
   ngOnInit(): void {
   }
 
-  @HostListener('mousedown')
-  mouseDown(){
-    this._renderer.setStyle(this._elementRef.nativeElement, 'background-color', this.defaultColor)
-  }
-  @HostListener('mouseup')
-  mouseUp(){
-    this._renderer.setStyle(this._elementRef.nativeElement, 'background-color', 'transparent')
-  }
-  inDragRegion(evt: any): boolean {
+  inDragRegion(evt: MouseEvent): boolean {
     return this._elementRef.nativeElement.clientWidth - evt.clientX + this._elementRef.nativeElement.offsetLeft < this.resizableGrabWidth;
   }
 }

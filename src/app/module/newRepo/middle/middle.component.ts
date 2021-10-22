@@ -1,6 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {OverlayService} from "../../../shared/utils/services/overlay/overlay.service";
-import {AuthComponent} from "../../../auth/auth.component";
+import {UserNameRepositoryComponent} from "../tooltip/user-name-repository/user-name-repository.component";
+import {TemplateRepositoryService} from "../../../shared/utils/services/newRepository/template-repository/template-repository.service";
 
 @Component({
   selector: 'elix-middle',
@@ -8,17 +9,31 @@ import {AuthComponent} from "../../../auth/auth.component";
   styleUrls: ['./middle.component.scss']
 })
 export class MiddleComponent implements OnInit {
-  @ViewChild('middle') middle: any
+  @ViewChild('userName') middle: any
 
-  constructor(private _overlayAll: OverlayService) {
+  user: any
+  repositoryName: string
+  description: string
+
+  constructor(private _overlayAll: OverlayService, private _templateRepository: TemplateRepositoryService) {
   }
 
   ngOnInit(): void {
+    this._templateRepository.templateUserName$.subscribe(resp => this.user = resp)
   }
 
   openServices(event: any) {
-    const target = document.getElementById('div') as HTMLElement
-    this._overlayAll.display(this.middle, AuthComponent)
+    const target = this.middle as HTMLElement
+    this._overlayAll.display(target, UserNameRepositoryComponent)
+  }
 
+  setDescription(event: Event) {
+    const a = event.target as HTMLTextAreaElement
+    this._templateRepository.sendDescriptionNameOnObservable(a.value ?? "")
+  }
+
+  setRepositoryName(event: Event) {
+    const a = event.target as HTMLTextAreaElement
+    this._templateRepository.sendRepositoryNameOnObservable(a.value)
   }
 }

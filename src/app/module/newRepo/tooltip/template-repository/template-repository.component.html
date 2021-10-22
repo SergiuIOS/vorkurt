@@ -1,11 +1,10 @@
 <elix-jumbotron [type]="'template'" class="mt-2 flex vorkurt__container-template">
   <div class="">
     <div class="flex items-start flex cursor-pointer p-0.5 items-stretch hover:w-96"
-         (click)="onClick(dataTemplate.template)"
+         (click)="onClick(dataTemplate)"
          *ngFor="let dataTemplate of dataTemplate">
       <div class="w-10 flex items-center">
         <mat-icon *ngIf="dataTemplate.check" [svgIcon]="'fa_solid:check'"></mat-icon>
-
       </div>
       <div *ngIf="dataTemplate" class="w-6 flex items-center"><img [src]='dataTemplate.icon'></div>
       <div class="flex items-center">

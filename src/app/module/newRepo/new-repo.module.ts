@@ -13,8 +13,10 @@ import {BottomComponent} from './bottom/bottom.component';
 import {SharedModule} from "../../shared/shared.module";
 import {DragDropModule} from "@angular/cdk/drag-drop";
 import {TemplateRepositoryComponent} from './tooltip/template-repository/template-repository.component';
+import { UserNameRepositoryComponent } from './tooltip/user-name-repository/user-name-repository.component';
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import {MatMenuModule} from "@angular/material/menu";
+import {FormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -24,6 +26,7 @@ import {MatMenuModule} from "@angular/material/menu";
     MiddleComponent,
     BottomComponent,
     TemplateRepositoryComponent,
+    UserNameRepositoryComponent,
   ],
   imports: [
     CommonModule,
@@ -36,7 +39,8 @@ import {MatMenuModule} from "@angular/material/menu";
     SharedModule,
     DragDropModule,
     MatButtonToggleModule,
-    MatMenuModule
+    MatMenuModule,
+    FormsModule
   ]
 })
 export class NewRepoModule {

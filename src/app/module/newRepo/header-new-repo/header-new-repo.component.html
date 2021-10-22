@@ -29,18 +29,24 @@
         <div class="pt-6"
         >
           <div class="w-36" #button>
-            <button  mat-raised-button (click)="openService($event)"
-                    class="w-full flex vorkurt__color-background vorkurt__color-text text-base font-normal
-               vorkurt__border-color
+            <button mat-raised-button (click)="openService($event)"
+                    class="w-max flex vorkurt__color-background vorkurt__color-text text-base font-normal
+               vorkurt__border-color vorkurt__header-newRepo-header
           "
-          style="padding-left: 2px;"
-          >
-          No template
-          <mat-icon class="flex fixed" [svgIcon]="'fa_solid:sort-down'"></mat-icon>
-          </button>
+                    style="padding-left: 2px;"
+            >
+              <div class="flex mx-2">
+                <div>
+                  {{dataTemplate ? dataTemplate : 'No template'}}
+                </div>
+                <div>
+                  <mat-icon class="flex fixed" [svgIcon]="'fa_solid:sort-down'"></mat-icon>
+                </div>
+              </div>
+            </button>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 </div>
