@@ -6,6 +6,11 @@ import {PopUpStateService} from "./pop-up-login/pop-up-state.service";
 import {throwError} from "rxjs";
 import {AuthService} from "../../shared/utils/services";
 import {OverlayPopUpService} from "../../shared/utils/services/overlay/overlay-pop-up.service";
+import {ActivatedRoute} from "@angular/router";
+import {IConfigRouter} from "../../shared/utils/interfaces";
+import {TimerService} from "../../shared/utils/services/timer/timer.service";
+import {OverlayService} from "../../shared/utils/services/overlay/overlay.service";
+import {NotificationComponent} from "./tooltip/notification/notification.component";
 
 @Component({
   selector: 'elix-header',
@@ -44,14 +49,24 @@ export class HeaderComponent implements OnInit {
   onSayHello = new EventEmitter<MouseEvent>()
   @Input() background: 'light' | 'dark' | 'transparent' = 'transparent'
   @ViewChild('pointIcon') pointIcon: ElementRef
+  routerData: IConfigRouter[] = []
+  number: number
+@ViewChild('notification') notification: HTMLElement
 
-  constructor(private _firebaseTry: ConnectionService, private _popUpState: PopUpStateService,
-              private _overlayPopUpService: OverlayPopUpService
+  constructor(private _firebaseTry: ConnectionService,
+              private _popUpState: PopUpStateService,
+              private _overlayPopUpService: OverlayPopUpService,
+              private _router: ActivatedRoute,
+              private _timer: TimerService,
+              private _overlayAll: OverlayService
               ) {
     this._firebaseTry.setUrl('/repository')
   }
 
   ngOnInit(): void {
+
+    this._timer.counterData$.subscribe(resp => this.number = resp.length )
+
     this._firebaseTry.data.snapshotChanges()
       .pipe(map(changeData => changeData
         .map(c => {
@@ -61,6 +76,8 @@ export class HeaderComponent implements OnInit {
               a[Object.keys(a)[0]]
           }
         }))).subscribe(data => console.log(data))
+
+    this.routerData = this._router.snapshot.data.data
   }
 
   resizeData(event: Event, dinamically: boolean) {
@@ -73,5 +90,10 @@ export class HeaderComponent implements OnInit {
     this._popUpState.statePopLogin(true)
 
     this._overlayPopUpService.open(event)
+  }
+
+  openBadge(){
+    const target = this.notification
+    this._overlayAll.display(this.notification, NotificationComponent)
   }
 }

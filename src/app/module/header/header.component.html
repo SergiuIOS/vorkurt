@@ -1,4 +1,5 @@
-<div class="bg-blue-700 sticky iufce__top" [ngClass]="' vorkurt__background-thrid iufce__parrent-header background-' + background">
+<div class="bg-blue-700 sticky iufce__top"
+     [ngClass]="' vorkurt__background-thrid iufce__parrent-header background-' + background">
   <div elixElixDrag class="flex pl-8 justify-center items-center h-16">
     <div class="w-8 h-8 mr-4 cursor-pointer" [routerLink]="'account'">
       <mat-icon [svgIcon]="'fa_brands:github'" class="iufce__icon " [ngClass]="'colorIcon-'+color"></mat-icon>
@@ -8,25 +9,34 @@
              [ngClass]="inputValue ? 'iufce__expand-input' :'' "
              (focus)="resizeData($event, true)"
              [(ngModel)]="inputValue"
-          (focusout)="resizeData($event, false)"
+             (focusout)="resizeData($event, false)"
       >
       <div class="ml-2">
-        <a class="text-white vorkurt__text-size-secondary" [routerLink]="['account/pull_request']" [ngClass]="'colorIcon-'+color">Pull request</a>
+        <a class="text-white vorkurt__text-size-secondary" routerLinkActive="active"
+           [routerLink]="['account/pull_request']" [ngClass]="'colorIcon-'+color">Pull request</a>
+      </div>
+      <div class="ml-2 vorkurt__router" *ngFor="let dataRouter of routerData">
+        <a class="text-white vorkurt__text-size-secondary" routerLinkActive="active" [routerLink]="[dataRouter.path]"
+           [ngClass]="'colorIcon-'+color">{{dataRouter.name}}</a>
       </div>
     </div>
-    <div class= "flex pr-8">
-      <div class="w-5 h-5">
-        <mat-icon [svgIcon]="'fa_solid:bell'" class="iufce__icon cursor-pointer" [ngClass]="'colorIcon-'+color"></mat-icon>
+    <div class="flex pr-8">
+      <div class="w-5 h-5" #notification>
+        <button [matBadge]='number === 0 ? "" : number ' (click)="openBadge()">
+          <mat-icon [svgIcon]="'fa_solid:bell'" class="iufce__icon cursor-pointer"
+                    [ngClass]="'colorIcon-'+color"></mat-icon>
+        </button>
       </div>
       <div class="w-5 h-5 ml-2">
-        <mat-icon [svgIcon]="'fa_solid:plus'" class="iufce__icon cursor-pointer" [ngClass]="'colorIcon-'+color"></mat-icon>
+        <mat-icon [svgIcon]="'fa_solid:plus'" class="iufce__icon cursor-pointer"
+                  [ngClass]="'colorIcon-'+color"></mat-icon>
       </div>
       <div class="w-5 h-5 ml-2" #pointIcon>
         <mat-icon
-                  (click)="retriveCoordinates($event)"
-                  [svgIcon]="'fa_solid:user-circle'"
-                  class="iufce__icon cursor-pointer"
-                  [ngClass]="'colorIcon-'+color"></mat-icon>
+          (click)="retriveCoordinates($event)"
+          [svgIcon]="'fa_solid:user-circle'"
+          class="iufce__icon cursor-pointer"
+          [ngClass]="'colorIcon-'+color"></mat-icon>
       </div>
     </div>
   </div>
