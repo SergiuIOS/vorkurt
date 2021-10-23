@@ -11,11 +11,14 @@ import {SharedModule} from "../../shared/shared.module";
 import {MatButtonModule} from "@angular/material/button";
 import {MatTooltipModule} from "@angular/material/tooltip";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
+import {MatBadgeModule} from "@angular/material/badge";
+import {NotificationComponent} from "./tooltip/notification/notification.component";
 
 @NgModule({
   declarations: [
     HeaderComponent,
-    PopUpLoginComponent
+    PopUpLoginComponent,
+    NotificationComponent
   ],
     imports: [
         OverlayModule,
@@ -28,6 +31,7 @@ import {MatProgressBarModule} from "@angular/material/progress-bar";
         MatButtonModule,
         MatTooltipModule,
         MatProgressBarModule,
+        MatBadgeModule,
     ],
   entryComponents: [
     PopUpLoginComponent

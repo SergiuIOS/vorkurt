@@ -18,6 +18,11 @@ const routes: Routes = [
         path: 'new',
         loadChildren: () => import('./../newRepo/new-repo.module').then(m => m.NewRepoModule)
       }
+      ,
+      {
+        path: 'timer',
+        loadChildren: () => import('./../timer/timer.module').then(m => m.TimerModule)
+      }
       , {
         path: ":id",
         canActivate: [AuthGuardGuard],

@@ -1,15 +1,35 @@
+import {IConfigRouter} from "../../shared/utils/interfaces";
+
 export const routerArray = Object.freeze({
   router: [
     {
       name: 'Pull Request',
       path: 'pull_request'
-    } as { name: string, path: string },
+    } as IConfigRouter,
     {
       name: 'Code',
       path: 'code'
-    } as { name: string, path: string }, {
+    } as IConfigRouter, {
       name: 'Settings',
       path: 'settings'
-    } as { name: string, path: string }
-  ]
+    } as IConfigRouter
+  ],
+  pageHeader: [
+    {
+      name: 'Issues',
+      path: 'issues'
+    },
+    {
+      name: 'Marketplace',
+      path: 'marketplace'
+    },{
+      name: 'Explore',
+      path: 'explore'
+    },
+    {
+      name: 'Timer',
+      path: 'timer'
+    }
+  ] as IConfigRouter[]
+
 })
