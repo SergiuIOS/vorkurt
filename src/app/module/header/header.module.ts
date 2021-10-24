@@ -35,7 +35,7 @@ import {NotificationComponent} from "./tooltip/notification/notification.compone
     ],
   entryComponents: [
     PopUpLoginComponent
-  ]
+  ],
 })
 export class HeaderModule {
 }

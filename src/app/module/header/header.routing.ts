@@ -2,9 +2,11 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {HeaderComponent} from "./header.component";
 import {AuthGuardGuard} from "../../shared/utils/services";
+import {PageNotFoundComponent} from "../../../@core/core/page-not-found/page-not-found.component";
 
 
 const routes: Routes = [
+
   {path: '', redirectTo: 'account', pathMatch: 'full'},
 
   {
@@ -28,6 +30,8 @@ const routes: Routes = [
         canActivate: [AuthGuardGuard],
         loadChildren: () => import('../repository/repository.module').then(m => m.RepositoryModule),
       },
+      {path: '**', component: PageNotFoundComponent},
+
     ]
   },
 

@@ -7,7 +7,7 @@ import {routerArray} from "./config/global/config-router";
 const routes: Routes = [
   {
     path: '',
-    data: {data : routerArray.pageHeader},
+    data: {data: routerArray.pageHeader},
     canActivate: [AuthGuardGuard],
     loadChildren: () => import('./module/header/header.module').then(m => m.HeaderModule),
   },
@@ -16,6 +16,7 @@ const routes: Routes = [
     component: AuthComponent
   },
   {path: '', redirectTo: 'auth', pathMatch: 'full'},
+
 ];
 
 @NgModule({

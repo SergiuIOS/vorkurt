@@ -1,4 +1,4 @@
-import {NgModule} from '@angular/core';
+import {ErrorHandler, NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 
 import {AppRoutingModule} from './app-routing.module';
@@ -21,6 +21,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { LayoutModule } from '@angular/cdk/layout';
+import {GlobalErrorHandleService} from "./shared/utils/services/abstract/global-error-handle.service";
 
 @NgModule({
   declarations: [
@@ -37,7 +38,6 @@ import { LayoutModule } from '@angular/cdk/layout';
     AngularFireDatabaseModule,
     FormsModule,
     CoreModule,
-    AgGridModule.withComponents([]),
     SharedModule,
     MatRippleModule,
     OverlayModule,

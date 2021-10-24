@@ -16,9 +16,6 @@
   },
   "private": true,
   "dependencies": {
-    "@ag-grid-community/all-modules": "^26.0.0",
-    "@ag-grid-community/angular": "^26.0.0",
-    "@ag-grid-enterprise/all-modules": "^26.0.1",
     "@angular/animations": "~12.2.0",
     "@angular/cdk": "^12.2.3",
     "@angular/common": "~12.2.0",
@@ -31,8 +28,6 @@
     "@angular/platform-browser-dynamic": "~12.2.0",
     "@angular/router": "~12.2.0",
     "ag-grid-angular": "^26.0.0",
-    "ag-grid-community": "^26.0.0",
-    "ag-grid-enterprise": "^26.0.1",
     "firebase": "^9.0.1",
     "reset-css": "^5.0.1",
     "rxjs": "~6.6.0",
@@ -59,6 +54,7 @@
     "autoprefixer": "^10.3.3",
     "babel-loader": "^8.2.2",
     "concurrently": "^2.2.0",
+    "cypress": "8.4.1",
     "gulp": "^3.9.1",
     "gulp-ngc": "^0.1.3",
     "jasmine-core": "~3.8.0",
@@ -72,7 +68,6 @@
     "systemjs": "^0.19.47",
     "systemjs-builder": "^0.15.33",
     "tailwindcss": "^2.2.9",
-    "typescript": "~4.3.5",
-    "cypress": "8.4.1"
+    "typescript": "~4.3.5"
   }
 }
