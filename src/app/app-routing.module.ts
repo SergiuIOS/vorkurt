@@ -3,6 +3,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {AuthComponent} from "./auth/auth.component";
 import {AuthGuardGuard} from "./shared/utils/services";
 import {routerArray} from "./config/global/config-router";
+import {PageNotFoundComponent} from "../@core/core/page-not-found/page-not-found.component";
 
 const routes: Routes = [
   {
@@ -15,17 +16,12 @@ const routes: Routes = [
     path: 'auth/test',
     component: AuthComponent
   },
-  {path: '', redirectTo: 'auth', pathMatch: 'full'},
+  {path: '', redirectTo: 'auth/test', pathMatch: 'full'},
+  {path: '**', component:PageNotFoundComponent }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-
-
-
-
-
-
   exports: [RouterModule]
 })
 export class AppRoutingModule {
