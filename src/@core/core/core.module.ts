@@ -4,9 +4,11 @@ import {DomSanitizer} from "@angular/platform-browser";
 import {HttpClientModule} from "@angular/common/http";
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {GlobalErrorHandleService} from "../../app/shared/utils/services/abstract/global-error-handle.service";
+import {MatButtonModule} from "@angular/material/button";
+import {RouterModule} from "@angular/router";
 
 @NgModule({
-  imports: [HttpClientModule],
+  imports: [HttpClientModule, MatButtonModule, RouterModule],
   providers: [{provide: ErrorHandler, useClass: GlobalErrorHandleService}],
   declarations: [
     PageNotFoundComponent

@@ -30,11 +30,8 @@ const routes: Routes = [
         canActivate: [AuthGuardGuard],
         loadChildren: () => import('../repository/repository.module').then(m => m.RepositoryModule),
       },
-      {path: '**', component: PageNotFoundComponent},
-
     ]
   },
-
 ];
 
 @NgModule({

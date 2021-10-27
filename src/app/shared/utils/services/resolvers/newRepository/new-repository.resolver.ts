@@ -19,7 +19,7 @@ export class NewRepositoryResolver implements Resolve<boolean> {
   }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): any{
-    this._firebase.setUrl('hhhhh/khjhjhjhtemplate')
+    this._firebase.setUrl('/template')
 
     this._firebase.data.snapshotChanges()
       .pipe(map(changeData => changeData

@@ -43,13 +43,10 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
-/src/app/config/auth
 .nvimlog
 .gitignore
 test.sh
 testNode.js
 .github
 database.rule*
-.fire*
-fire*
-public
+

@@ -31,11 +31,6 @@ export class TimmerComponent implements OnInit {
         this.updateDate(date, this.pause)
       }
     }, 1000)
-    if (this.clearTimer) {
-      window.clearInterval(this.timer)
-      this.description = ''
-    }
-
   }
 
   pauseTimeout() {
@@ -87,6 +82,8 @@ export class TimmerComponent implements OnInit {
       this.minute = 0
       this.second = 0
       this.clearTimer = false
+      this.description = ''
+      this.fllag = true
     }
     if (method === 'learn') {
       this.clearTimer = true
@@ -132,6 +129,8 @@ export class TimmerComponent implements OnInit {
       this.onAudioPlay()
       clearInterval(this.anotherTimer)
       this._timerService.sendCounterData({name: this.description, id: 1})
+      this.fllag = true
+      this.description = ''
     }
 
     if (this.distance < 2000) {
