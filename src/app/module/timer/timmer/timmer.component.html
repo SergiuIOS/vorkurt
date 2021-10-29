@@ -12,12 +12,12 @@
   <div class="flex">
     <div class="vorkurt__padding-button">
       <div class="flex justify-center ">
-        <button [disabled]="!fllag" mat-button (click)="updateTime('hour', 10, true)">
+        <button [disabled]="!flag" mat-button (click)="updateTime('hour', 10, true)">
           <mat-icon [svgIcon]="'fa_solid:arrow-up'"></mat-icon>
         </button>
       </div>
       <div class="flex justify-center">
-        <button [disabled]="!fllag" mat-button (click)="updateTime('hour', 1, true)">
+        <button [disabled]="!flag" mat-button (click)="updateTime('hour', 1, true)">
           <mat-icon [svgIcon]="'fa_solid:sort-up'"></mat-icon>
         </button>
       </div>
@@ -27,21 +27,21 @@
         </span>
       </div>
       <div class="flex justify-center">
-        <button [disabled]="!fllag" mat-button (click)="updateTime('hour', 1, false)">
+        <button [disabled]="!flag" mat-button (click)="updateTime('hour', 1, false)">
           <mat-icon [svgIcon]="'fa_solid:sort-down'"></mat-icon>
         </button>
       </div>
       <div class="flex justify-center">
-        <button [disabled]="!fllag" mat-button (click)="updateTime('hour', 10, false)">
+        <button [disabled]="!flag" mat-button (click)="updateTime('hour', 10, false)">
           <mat-icon [svgIcon]="'fa_solid:arrow-down'"></mat-icon>
         </button>
       </div>
       <div>
-        <button mat-raised-button *ngIf="fllag" [disabled]='!description' (click)="startCounter('start')"> Start
+        <button mat-raised-button *ngIf="flag" [disabled]='!description' (click)="startCounter('start')"> Start
         </button>
       </div>
       <div>
-        <button *ngIf="!fllag" mat-raised-button color="warn" (click)="startCounter('pause')"> Pause</button>
+        <button *ngIf="!flag" mat-raised-button color="warn" (click)="startCounter('pause')"> Pause</button>
       </div>
     </div>
     <div class="flex items-center h-5/6">
@@ -52,12 +52,12 @@
     </div>
     <div class="vorkurt__padding-button">
       <div class="flex justify-center">
-        <button [disabled]="!fllag" mat-button (click)="updateTime('minute', 10, true)">
+        <button [disabled]="!flag" mat-button (click)="updateTime('minute', 10, true)">
           <mat-icon [svgIcon]="'fa_solid:arrow-up'"></mat-icon>
         </button>
       </div>
       <div class="flex justify-center">
-        <button [disabled]="!fllag" mat-button (click)="updateTime('minute', 1, true)">
+        <button [disabled]="!flag" mat-button (click)="updateTime('minute', 1, true)">
           <mat-icon [svgIcon]="'fa_solid:sort-up'"></mat-icon>
         </button>
       </div>
@@ -67,17 +67,17 @@
         </span>
       </div>
       <div class="flex justify-center">
-        <button [disabled]="!fllag" mat-button (click)="updateTime('minute', 1, false)">
+        <button [disabled]="!flag" mat-button (click)="updateTime('minute', 1, false)">
           <mat-icon [svgIcon]="'fa_solid:sort-down'"></mat-icon>
         </button>
       </div>
       <div class="flex justify-center">
-        <button [disabled]="!fllag" mat-button (click)="updateTime('minute', 10, false)">
+        <button [disabled]="!flag" mat-button (click)="updateTime('minute', 10, false)">
           <mat-icon [svgIcon]="'fa_solid:arrow-down'"></mat-icon>
         </button>
       </div>
       <div>
-        <button mat-raised-button [disabled]="!fllag || !description" (click)="startCounter('reset')"> Reset</button>
+        <button mat-raised-button [disabled]="!flag || !description" (click)="startCounter('reset')"> Reset</button>
       </div>
     </div>
     <div class="flex items-center h-5/6">
@@ -88,12 +88,12 @@
     </div>
     <div class="vorkurt__padding-button">
       <div class="flex justify-center">
-        <button [disabled]="!fllag" mat-button (click)="updateTime('second', 10, true)">
+        <button [disabled]="!flag" mat-button (click)="updateTime('second', 10, true)">
           <mat-icon [svgIcon]="'fa_solid:arrow-up'"></mat-icon>
         </button>
       </div>
       <div class="flex justify-center">
-        <button [disabled]="!fllag" mat-button (click)="updateTime('second', 1, true)">
+        <button [disabled]="!flag" mat-button (click)="updateTime('second', 1, true)">
           <mat-icon [svgIcon]="'fa_solid:sort-up'"></mat-icon>
         </button>
       </div>
@@ -103,17 +103,17 @@
         </span>
       </div>
       <div class="flex justify-center">
-        <button [disabled]="!fllag" mat-button (click)="updateTime('second', 1, false)">
+        <button [disabled]="!flag" mat-button (click)="updateTime('second', 1, false)">
           <mat-icon [svgIcon]="'fa_solid:sort-down'"></mat-icon>
         </button>
       </div>
       <div class="flex justify-center">
-        <button [disabled]="!fllag" mat-button (click)="updateTime('second', 10, false)">
+        <button [disabled]="!flag" mat-button (click)="updateTime('second', 10, false)">
           <mat-icon [svgIcon]="'fa_solid:arrow-down'"></mat-icon>
         </button>
       </div>
       <div>
-        <button mat-raised-button [disabled]="!fllag || !description" (click)="startCounter('learn')"> Learn Mode
+        <button mat-raised-button [disabled]="!flag || !description" (click)="startCounter('learn')"> Learn Mode
         </button>
       </div>
     </div>

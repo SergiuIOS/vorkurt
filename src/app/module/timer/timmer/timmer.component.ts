@@ -83,18 +83,18 @@ export class TimmerComponent implements OnInit {
       this.second = 0
       this.clearTimer = false
       this.description = ''
-      this.fllag = true
+      this.flag = true
     }
     if (method === 'learn') {
       this.clearTimer = true
       this.countDownDate = new Date(new Date().setHours(new Date().getHours(), new Date().getMinutes() + 25, new Date().getSeconds()))
-      this.fllag = false
+      this.flag = false
     }
     if (method === 'pause') {
       this.pause = false
       this.clearTimer = true
       this.countDownDate = new Date(new Date().setHours(new Date().getHours() + this.hour, new Date().getMinutes() + this.minute, new Date().getSeconds() + this.second))
-      this.fllag = true
+      this.flag = true
     }
   }
 
@@ -103,10 +103,7 @@ export class TimmerComponent implements OnInit {
     audio.src = './../../../../assets/sound/warn/Msg Tone 2a.mp3'
     audio.load()
     audio.play().then(resp => {
-        this.style = 'green'
         this.anotherTimer = setInterval(() => {
-          this.style = '#adbac7'
-          this.fllag = true
         }, 1000)
       }
     )
@@ -116,6 +113,7 @@ export class TimmerComponent implements OnInit {
     const now = date.getTime()
     if (pause) {
       this.distance = this.countDownDate - now
+      this.flag = false
     }
     this.hour = Math.floor(this.distance % (1000 * 60 * 60 * 24) / (1000 * 60 * 60))
     this.minute = Math.floor(this.distance % (1000 * 60 * 60) / (1000 * 60))
@@ -129,7 +127,8 @@ export class TimmerComponent implements OnInit {
       this.onAudioPlay()
       clearInterval(this.anotherTimer)
       this._timerService.sendCounterData({name: this.description, id: 1})
-      this.fllag = true
+      this.flag = true
+      this.style = '#adbac7'
       this.description = ''
     }
 
