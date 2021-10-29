@@ -14,7 +14,7 @@ export class TimmerComponent implements OnInit {
   clearTimer: boolean = false;
   public timer: any;
   pause: boolean = true
-  fllag: boolean = true
+  flag: boolean = true
   style: string;
   description: string;
   anotherTimer: any
@@ -72,7 +72,7 @@ export class TimmerComponent implements OnInit {
       this.pause = true
       this.clearTimer = true
       this.countDownDate = new Date(new Date().setHours(new Date().getHours() + this.hour, new Date().getMinutes() + this.minute, new Date().getSeconds() + this.second))
-      this.fllag = false
+      this.flag = false
     }
     if (method === 'reset') {
       this.pause = true
