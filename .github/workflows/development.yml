@@ -32,6 +32,3 @@ jobs:
 
       - name: "🚀 static app"
         run: npm run build
-      
-      - name: "deploy firebase"
-        run: firebase deploy
