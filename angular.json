@@ -27,6 +27,11 @@
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
+              {
+                "glob": "**/*",
+                "input": "./node_modules/leaflet/dist/images",
+                "output": "src/assets/icons/leaflet"
+              },
               "src/favicon.ico",
               "src/assets"
             ],
@@ -145,5 +150,8 @@
       }
     }
   },
-  "defaultProject": "vorkurt"
+  "defaultProject": "vorkurt",
+  "cli": {
+    "analytics": "bb04b2d1-0ee9-4b8f-b956-055abe4a4c64"
+  }
 }

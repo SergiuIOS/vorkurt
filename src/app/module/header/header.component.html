@@ -11,12 +11,12 @@
              [(ngModel)]="inputValue"
              (focusout)="resizeData($event, false)"
       >
-      <div class="ml-2">
-        <a class="text-white vorkurt__text-size-secondary" routerLinkActive="active"
+      <div class="ml-2 h-10 flex items-center">
+        <a class="text-white vorkurt__text-size-secondary flex items-center" routerLinkActive="active"
            [routerLink]="['account/pull_request']" [ngClass]="'colorIcon-'+color">Pull request</a>
       </div>
-      <div class="ml-2 vorkurt__router" *ngFor="let dataRouter of routerData">
-        <a class="text-white vorkurt__text-size-secondary" routerLinkActive="active" [routerLink]="[dataRouter.path]"
+      <div class="ml-2 vorkurt__router flex items-center cursor-pointer" *ngFor="let dataRouter of routerData" routerLinkActive="active" [routerLink]="[dataRouter.path]" >
+        <a class="text-white vorkurt__text-size-secondary"
            [ngClass]="'colorIcon-'+color">{{dataRouter.name}}</a>
       </div>
     </div>

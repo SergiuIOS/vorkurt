@@ -7,7 +7,7 @@ import Button from './button.component';
 import Header from './header.component';
 
 export default {
-  title: 'Example/Header',
+  title: 'Example/Headersss',
   component: Header,
   decorators: [
     moduleMetadata({

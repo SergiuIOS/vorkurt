@@ -29,6 +29,10 @@ export const routerArray = Object.freeze({
     {
       name: 'Timer',
       path: 'timer'
+    },
+    {
+      name: 'Transport',
+      path: 'tms'
     }
   ] as IConfigRouter[]
 
