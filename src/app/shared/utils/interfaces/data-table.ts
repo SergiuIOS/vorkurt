@@ -16,3 +16,7 @@ export interface ITimer{
   name: string
   id: number
 }
+
+export interface ITmsRouter extends IConfigRouter{
+  icon: string
+}

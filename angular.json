@@ -36,6 +36,7 @@
               "src/assets"
             ],
             "styles": [
+              "src/assets/styles/variable/_variable.scss",
               "./node_modules/leaflet/dist/leaflet.css",
               "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
               "./src/assets/styles/custom-style.scss",

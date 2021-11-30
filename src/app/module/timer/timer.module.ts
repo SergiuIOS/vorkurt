@@ -1,18 +1,15 @@
-import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {TimmerComponent} from './timmer/timmer.component';
-import {AppHeaderRouting} from "./timer.routing";
-import {MatIconModule} from "@angular/material/icon";
-import {MatButtonModule} from "@angular/material/button";
-import {MatInputModule} from "@angular/material/input";
-import {MatFormFieldModule} from "@angular/material/form-field";
-import {FormsModule} from "@angular/forms";
-
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { TimmerComponent } from './timmer/timmer.component';
+import { AppHeaderRouting } from './timer.routing';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [
-    TimmerComponent
-  ],
+  declarations: [TimmerComponent],
   imports: [
     CommonModule,
     AppHeaderRouting,
@@ -20,8 +17,7 @@ import {FormsModule} from "@angular/forms";
     MatButtonModule,
     MatInputModule,
     MatFormFieldModule,
-    FormsModule
-  ]
+    FormsModule,
+  ],
 })
-export class TimerModule {
-}
+export class TimerModule {}
