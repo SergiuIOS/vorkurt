@@ -1,6 +1,6 @@
 {
   "name": "vorkurt",
-  "version": "0.0.0",
+  "version": "0.0.0-development",
   "engines": {
     "node": ">=14",
     "npm": ">=7"
@@ -17,7 +17,7 @@
     "e2e": "ng e2e",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
-    "semantic-release": "npx semantic-release"
+    "push": "npx @open-sauced/conventional-commit"
   },
   "private": true,
   "dependencies": {
@@ -47,7 +47,7 @@
     "@babel/core": "^7.15.8",
     "@compodoc/compodoc": "^1.1.15",
     "@cypress/schematic": "^1.5.1",
-    "@open-sauced/semantic-release-conventional-config": "^2.0.1",
+    "@open-sauced/conventional-commit": "^1.0.1",
     "@storybook/addon-actions": "^6.3.12",
     "@storybook/addon-essentials": "^6.3.12",
     "@storybook/addon-links": "^6.3.12",
