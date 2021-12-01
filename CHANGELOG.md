@@ -1,3 +1,10 @@
+## [1.1.0](https://github.com/NsdHSO/vorkurt/compare/v1.0.0...v1.1.0) (2021-12-01)
+
+
+### Features
+
+* added list component and managed the url bar from item ([#36](https://github.com/NsdHSO/vorkurt/issues/36)) ([f09d7a6](https://github.com/NsdHSO/vorkurt/commit/f09d7a629dd08334010c54a786d3899b280c3f88))
+
 ## 1.0.0 (2021-12-01)
 
 
