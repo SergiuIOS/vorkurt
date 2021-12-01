@@ -1,6 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {SpinnerStateService} from "./shared/spinner/spinner-state.service";
-import {NavigationEnd, Router} from "@angular/router";
+import {SpinnerStateService}          from "./shared/component/spinner/spinner-state.service";
+import {NavigationEnd, Router}        from "@angular/router";
 import {Subscription} from "rxjs";
 import {filter} from "rxjs/operators";
 

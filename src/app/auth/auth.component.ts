@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {NgForm} from "@angular/forms";
 import {AuthService} from "../shared/utils/services";
-import {Router} from "@angular/router";
-import {SpinnerStateService} from "../shared/spinner/spinner-state.service";
-import {throwError} from "rxjs";
+import {Router}              from "@angular/router";
+import {SpinnerStateService} from "../shared/component/spinner/spinner-state.service";
+import {throwError}          from "rxjs";
 
 @Component({
   selector: 'elix-auth',

@@ -1,13 +1,15 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { ElixDragDirective } from './utils/directive/elix-drag.directive';
-import { ElixSpinnerComponent } from './spinner/elix-spinner.component';
+import { NgModule }               from '@angular/core';
+import { CommonModule }           from '@angular/common';
+import {
+  BtnPrimaryDirective,
+  ElixDragDirective,
+  InputPrimaryDirective,
+  TooltipDirectiveDirective,
+}                                 from './utils/services';
+import { ElixSpinnerComponent }   from './component/spinner/elix-spinner.component';
 import { ElixJumbotronComponent } from './component/jumbotron/elix-jumbotron.component';
-import { BtnPrimaryDirective } from './directives/btn-primary.directive';
-import { InputPrimaryDirective } from './directives/input-primary.directive';
-import { TooltipDirectiveDirective } from './directives/tooltip/tooltip-directive.directive';
 
-@NgModule({
+@NgModule( {
   declarations: [
     ElixSpinnerComponent,
     ElixDragDirective,
@@ -16,7 +18,7 @@ import { TooltipDirectiveDirective } from './directives/tooltip/tooltip-directiv
     InputPrimaryDirective,
     TooltipDirectiveDirective,
   ],
-  imports: [CommonModule],
+  imports: [ CommonModule ],
   exports: [
     ElixSpinnerComponent,
     ElixDragDirective,
@@ -25,5 +27,6 @@ import { TooltipDirectiveDirective } from './directives/tooltip/tooltip-directiv
     InputPrimaryDirective,
     TooltipDirectiveDirective,
   ],
-})
-export class SharedModule {}
+} )
+export class SharedModule {
+}

@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit}   from '@angular/core';
 import {SpinnerStateService} from "./spinner-state.service";
-import {tap} from "rxjs/operators";
+import {tap}                 from "rxjs/operators";
 
 @Component({
   selector: 'elix-spinner',
