@@ -1,3 +1,10 @@
+## [1.2.0](https://github.com/NsdHSO/vorkurt/compare/v1.1.0...v1.2.0) (2021-12-02)
+
+
+### Features
+
+* data static in router from items ([34f68fc](https://github.com/NsdHSO/vorkurt/commit/34f68fc6c7d9c0e6e9169e8cbf36f3177348c0cc))
+
 ## [1.1.0](https://github.com/NsdHSO/vorkurt/compare/v1.0.0...v1.1.0) (2021-12-01)
 
 
