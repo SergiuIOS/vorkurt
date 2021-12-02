@@ -12,10 +12,16 @@ const routes : Routes = [
       {
         path: '',
         component: ListItemsComponent,
+        data: {
+          breadcrumb: 'List items'
+        }
       },
       {
         path: 'new',
         component: NewItemsComponent,
+        data : {
+          breadcrumb: 'New item'
+        }
       },
     ],
   },

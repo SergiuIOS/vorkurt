@@ -1,7 +1,7 @@
 <div class="item-wrapper" >
 	<div class="item-branch h-full" >
 		<div class="item__route-easy" >
-			<span class="route" *ngFor="let a of url" [routerLink]="[a]"> > {{a}} </span >
+			<span class="route cursor-pointer " *ngFor="let a of breadcrumbs" [routerLink]="[a.url]" > > {{a.label}} </span >
 		</div >
 		<div class="package-item flex flex-row items-center" >
      <span >
@@ -15,7 +15,7 @@
         1 of 1
           </span >
 				<button elixBtnPrimary class="mr-5" (click)="goToPage('new')" > New</button >
-				<button elixBtnPrimary (click)="goToPage('finish')"> Finished</button >
+				<button elixBtnPrimary (click)="goToPage('finish')" > Finished</button >
 			</div >
 		</div >
 		<div class="package__item-content h-full" >

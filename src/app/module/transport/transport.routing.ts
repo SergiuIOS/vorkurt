@@ -1,10 +1,10 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { NgModule }                from '@angular/core';
+import { RouterModule, Routes }    from '@angular/router';
 import { TransportFrameComponent } from './transport-frame.component';
-import { routerArray } from '../../config/global/config-router';
-import { PlBillingResolver } from '../../shared/utils/services/resolvers/pl-billing/pl-billing.resolver';
+import { routerArray }             from '../../config/global/config-router';
+import { PlBillingResolver }       from '../../shared/utils/services/resolvers/pl-billing/pl-billing.resolver';
 
-const routes: Routes = [
+const routes : Routes = [
   {
     path: '',
     component: TransportFrameComponent,
@@ -13,71 +13,96 @@ const routes: Routes = [
       {
         path: 'dashboard',
         loadChildren: () =>
-          import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
+            import('./dashboard/dashboard.module').then( (m) => m.DashboardModule ),
+        data: {
+          breadcrumb: 'Dashboard',
+        },
       },
       {
         path: 'item',
         loadChildren: () =>
-          import('./item/item.module').then((m) => m.ItemModule),
+            import('./item/item.module').then( (m) => m.ItemModule ),
+        data: {
+          breadcrumb: 'Item',
+        },
       },
       {
         path: 'pck-collection',
         loadChildren: () =>
-          import('./pickup-collection/pickup-collection.module').then(
-            (m) => m.PickupColectionModule
-          ),
+            import('./pickup-collection/pickup-collection.module').then(
+                (m) => m.PickupColectionModule
+            ),
+        data: {
+          breadcrumb: 'Package Collection',
+        },
       },
       {
         path: 'shp-transportation',
         loadChildren: () =>
-          import(
-            './shipping-transportation/shipping-transportation.module'
-          ).then((m) => m.ShippingTransportationModule),
+            import(
+                './shipping-transportation/shipping-transportation.module'
+                ).then( (m) => m.ShippingTransportationModule ),
+        data: {
+          breadcrumb: 'Ship Transportation',
+        },
       },
       {
         path: 'delivery',
         loadChildren: () =>
-          import('./delivery/delivery.module').then((m) => m.DeliveryModule),
+            import('./delivery/delivery.module').then( (m) => m.DeliveryModule ),
+        data: {
+          breadcrumb: 'Delivery',
+        },
       },
       {
         path: 'ctm-support',
         loadChildren: () =>
-          import('./customer-support/customer-support.module').then(
-            (m) => m.CustomerSupportModule
-          ),
+            import('./customer-support/customer-support.module').then(
+                (m) => m.CustomerSupportModule
+            ),
+        data: {
+          breadcrumb: 'Ctm Support',
+        },
       },
       {
         path: 'billing',
         loadChildren: () =>
-          import('./billing/billing.module').then((m) => m.BillingModule),
+            import('./billing/billing.module').then( (m) => m.BillingModule ),
+        data: {
+          breadcrumb: 'Billing',
+        },
       },
       {
         path: '3-pl-billing',
         loadChildren: () =>
-          import('./pl-billing/pl-billing.module').then(
-            (m) => m.PlBillingModule
-          ),
+            import('./pl-billing/pl-billing.module').then(
+                (m) => m.PlBillingModule
+            ),
         resolve: {
           coins: PlBillingResolver,
         },
       },
       {
         path: 'api',
-        loadChildren: () => import('./api/api.module').then((m) => m.ApiModule),
+        loadChildren: () => import('./api/api.module').then( (m) => m.ApiModule ),
       },
       {
         path: 'customer-vendor',
         loadChildren: () =>
-          import('./customer-vendor/customer-vendor.module').then(
-            (m) => m.CustomerVendorModule
-          ),
+            import('./customer-vendor/customer-vendor.module').then(
+                (m) => m.CustomerVendorModule
+            ),
+        data: {
+          breadcrumb: 'Customer Vendor',
+        },
       },
     ],
   },
 ];
 
-@NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
-})
-export class AppTransportRouting {}
+@NgModule( {
+  imports: [ RouterModule.forChild( routes ) ],
+  exports: [ RouterModule ],
+} )
+export class AppTransportRouting {
+}
