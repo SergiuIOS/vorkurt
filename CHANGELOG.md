@@ -1,3 +1,15 @@
+## [1.3.0](https://github.com/NsdHSO/vorkurt/compare/v1.2.0...v1.3.0) (2021-12-03)
+
+
+### Features
+
+* added breadcrumb([#39](https://github.com/NsdHSO/vorkurt/issues/39)) ([0ee83a8](https://github.com/NsdHSO/vorkurt/commit/0ee83a8378c3414af4f05b30f480fe4f8d1895a5))
+
+
+### Tests
+
+* **tested-something:** tested something ([#38](https://github.com/NsdHSO/vorkurt/issues/38)) ([2635a45](https://github.com/NsdHSO/vorkurt/commit/2635a450da2b79b131ffe5a4c37cb30bc32343f5))
+
 ## [1.2.0](https://github.com/NsdHSO/vorkurt/compare/v1.1.0...v1.2.0) (2021-12-02)
 
 
