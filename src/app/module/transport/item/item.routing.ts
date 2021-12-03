@@ -8,20 +8,23 @@ const routes : Routes = [
   {
     path: '',
     component: ItemComponent,
+    data: {
+      breadCrumb: 'Item',
+    },
     children: [
       {
         path: '',
         component: ListItemsComponent,
         data: {
-          breadcrumb: 'List items'
-        }
+          breadCrumb: 'List items',
+        },
       },
       {
         path: 'new',
         component: NewItemsComponent,
-        data : {
-          breadcrumb: 'New item'
-        }
+        data: {
+          breadCrumb: 'New item',
+        },
       },
     ],
   },

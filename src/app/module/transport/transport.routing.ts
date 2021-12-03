@@ -15,16 +15,14 @@ const routes : Routes = [
         loadChildren: () =>
             import('./dashboard/dashboard.module').then( (m) => m.DashboardModule ),
         data: {
-          breadcrumb: 'Dashboard',
+          breadCrumb: 'Dashboard',
         },
       },
       {
         path: 'item',
         loadChildren: () =>
             import('./item/item.module').then( (m) => m.ItemModule ),
-        data: {
-          breadcrumb: 'Item',
-        },
+
       },
       {
         path: 'pck-collection',
@@ -33,7 +31,7 @@ const routes : Routes = [
                 (m) => m.PickupColectionModule
             ),
         data: {
-          breadcrumb: 'Package Collection',
+          breadCrumb: 'Package Collection',
         },
       },
       {
@@ -43,7 +41,7 @@ const routes : Routes = [
                 './shipping-transportation/shipping-transportation.module'
                 ).then( (m) => m.ShippingTransportationModule ),
         data: {
-          breadcrumb: 'Ship Transportation',
+          breadCrumb: 'Ship Transportation',
         },
       },
       {
@@ -51,7 +49,7 @@ const routes : Routes = [
         loadChildren: () =>
             import('./delivery/delivery.module').then( (m) => m.DeliveryModule ),
         data: {
-          breadcrumb: 'Delivery',
+          breadCrumb: 'Delivery',
         },
       },
       {
@@ -61,7 +59,7 @@ const routes : Routes = [
                 (m) => m.CustomerSupportModule
             ),
         data: {
-          breadcrumb: 'Ctm Support',
+          breadCrumb: 'Ctm Support',
         },
       },
       {
@@ -69,7 +67,7 @@ const routes : Routes = [
         loadChildren: () =>
             import('./billing/billing.module').then( (m) => m.BillingModule ),
         data: {
-          breadcrumb: 'Billing',
+          breadCrumb: 'Billing',
         },
       },
       {
@@ -81,6 +79,9 @@ const routes : Routes = [
         resolve: {
           coins: PlBillingResolver,
         },
+        data: {
+          breadCrumb: 'pl-billing',
+        }
       },
       {
         path: 'api',
@@ -93,7 +94,7 @@ const routes : Routes = [
                 (m) => m.CustomerVendorModule
             ),
         data: {
-          breadcrumb: 'Customer Vendor',
+          breadCrumb: 'Customer Vendor',
         },
       },
     ],
