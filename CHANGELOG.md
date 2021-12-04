@@ -1,3 +1,10 @@
+### [1.3.1](https://github.com/NsdHSO/vorkurt/compare/v1.3.0...v1.3.1) (2021-12-04)
+
+
+### Tests
+
+* **tested-something:** tested something ([#40](https://github.com/NsdHSO/vorkurt/issues/40)) ([21fe1ff](https://github.com/NsdHSO/vorkurt/commit/21fe1ff329c9000d868000ce053bdaf61b90fe46))
+
 ## [1.3.0](https://github.com/NsdHSO/vorkurt/compare/v1.2.0...v1.3.0) (2021-12-03)
 
 
